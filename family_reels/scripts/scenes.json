@@ -17,8 +17,12 @@
      "type": "hook",
      "a": 0.02,
      "b": 1.0,
-     "main": "Oilada baxtli yashashning *siri* nimada?"
+     "main": "Oilada baxtli yashashning *siri* nimada?",
+     "y": 170
     }
+   ],
+   "sg": [
+    0
    ]
   },
   {
@@ -36,8 +40,14 @@
      "type": "title",
      "a": 0.1,
      "b": 1.0,
-     "main": "Yaxshi muomala — oilaning *ziynati.*"
+     "main": "Yaxshi muomala — oilaning *ziynati.*",
+     "y": 150
     }
+   ],
+   "sg": [
+    0,
+    0,
+    0
    ]
   },
   {
@@ -54,20 +64,43 @@
      "type": "title",
      "a": 0.0,
      "b": 0.24,
-     "main": "*Mehribon* so‘z"
+     "main": "*Mehribon* so‘z",
+     "sent": 0,
+     "fr": [
+      0,
+      0.4
+     ],
+     "y": 1240
     },
     {
      "type": "title",
      "a": 0.24,
      "b": 0.44,
-     "main": "O‘zaro *yordam*"
+     "main": "O‘zaro *yordam*",
+     "sent": 0,
+     "fr": [
+      0.4,
+      0.78
+     ],
+     "y": 1240
     },
     {
      "type": "title",
      "a": 0.44,
      "b": 1.0,
-     "main": "*Sabr*"
+     "main": "*Sabr*",
+     "sent": 0,
+     "fr": [
+      0.78,
+      1
+     ],
+     "hold": "end",
+     "y": 1240
     }
+   ],
+   "sg": [
+    0,
+    1
    ]
   },
   {
@@ -92,6 +125,12 @@
      "uz": "Mo‘min erkak mo‘mina ayolni yomon ko‘rmasin. Agar uning bir xulqini yoqtirmasa, boshqasidan rozi bo‘ladi.",
      "source": "Sahih Muslim, 1469"
     }
+   ],
+   "sg": [
+    0,
+    1,
+    2,
+    2
    ]
   },
   {
@@ -111,29 +150,63 @@
      "n": 1,
      "a": 0.02,
      "b": 0.26,
-     "main": "Yaxshi *gapiring.*"
+     "main": "Yaxshi *gapiring.*",
+     "sent": 0,
+     "fr": [
+      0,
+      1
+     ],
+     "hold": true,
+     "y": 130
     },
     {
      "type": "list",
      "n": 2,
      "a": 0.26,
      "b": 0.5,
-     "main": "Bir-biringizni *kechiring.*"
+     "main": "Bir-biringizni *kechiring.*",
+     "sent": 1,
+     "fr": [
+      0,
+      1
+     ],
+     "hold": true,
+     "y": 130
     },
     {
      "type": "list",
      "n": 3,
      "a": 0.5,
      "b": 0.75,
-     "main": "*Rahmat* aytishni unutmang."
+     "main": "*Rahmat* aytishni unutmang.",
+     "sent": 2,
+     "fr": [
+      0,
+      1
+     ],
+     "hold": true,
+     "y": 130
     },
     {
      "type": "list",
      "n": 4,
      "a": 0.75,
      "b": 1.0,
-     "main": "Oilada *mehrni* ko‘paytiring."
+     "main": "Oilada *mehrni* ko‘paytiring.",
+     "sent": 3,
+     "fr": [
+      0,
+      1
+     ],
+     "hold": true,
+     "y": 130
     }
+   ],
+   "sg": [
+    0,
+    1,
+    2,
+    3
    ]
   },
   {
@@ -153,8 +226,16 @@
      "a": 0.04,
      "b": 1.0,
      "main": "Baxtli oila — *mehr, sabr* va yaxshi muomaladan boshlanadi.",
-     "sub": "Bugun oilangizdagilardan biriga yaxshi so‘z ayting."
+     "sub": "",
+     "y": 110,
+     "fs": 70
     }
+   ],
+   "sg": [
+    0,
+    0,
+    1,
+    1
    ]
   }
  ]

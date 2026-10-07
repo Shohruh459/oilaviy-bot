@@ -28,15 +28,15 @@ function html(c) {
   let body = '';
   switch (c.type) {
     case 'hook':
-      body = `<div class="box" style="top:560px"><div class="rule"></div><div class="main" style="font-size:112px">${hl(c.main)}</div></div>`; break;
+      body = `<div class="box" style="top:${c.y??560}px"><div class="rule"></div><div class="main" style="font-size:${c.fs??112}px">${hl(c.main)}</div></div>`; break;
     case 'title':
-      body = `<div class="box" style="top:640px">${c.small ? `<div class="small">${c.small}</div>` : ''}<div class="rule"></div><div class="main" style="font-size:96px">${hl(c.main)}</div></div>`; break;
+      body = `<div class="box" style="top:${c.y??640}px">${c.small ? `<div class="small">${c.small}</div>` : ''}<div class="rule"></div><div class="main" style="font-size:${c.fs??96}px">${hl(c.main)}</div></div>`; break;
     case 'list':
-      body = `<div class="box" style="top:600px"><div class="num">${c.n}</div><div class="main" style="font-size:98px">${hl(c.main)}</div></div>`; break;
+      body = `<div class="box" style="top:${c.y??600}px"><div class="num">${c.n}</div><div class="main" style="font-size:${c.fs??98}px">${hl(c.main)}</div></div>`; break;
     case 'hadith':
       body = `<div class="box" style="top:250px"><div class="qcard"><div class="label">${c.label}</div><div class="ar">${c.arabic}</div><div class="sep"></div><div class="uz">${c.uz}</div><div class="src">${c.source}</div></div></div>`; break;
     case 'closing':
-      body = `<div class="box" style="top:480px"><div class="rule"></div><div class="main" style="font-size:90px">${hl(c.main)}</div><div style="font-size:48px;font-weight:600;margin-top:60px;opacity:.95">${c.sub}</div></div>`; break;
+      body = `<div class="box" style="top:${c.y??480}px"><div class="rule"></div><div class="main" style="font-size:${c.fs??90}px">${hl(c.main)}</div>${c.sub?`<div style="font-size:48px;font-weight:600;margin-top:60px;opacity:.95">${c.sub}</div>`:''}</div>`; break;
   }
   return `<html><head><meta charset="utf-8"><style>${css}</style></head><body>${c.type==='hadith'?'':'<div class="scrim"></div>'}${body}</body></html>`;
 }
@@ -56,7 +56,7 @@ function html(c) {
   const bgHtml = `<html><head><meta charset="utf-8"><style>*{margin:0}html,body{width:1080px;height:1920px;overflow:hidden}
     body{background:radial-gradient(ellipse at 50% 38%,#F6E7C6 0%,#E9CD96 55%,#C99B58 100%)}
     svg{position:absolute;inset:0;opacity:.13}svg *{stroke:#7a5524;stroke-width:1.6}
-    .v{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 45%,rgba(55,30,8,.55) 100%)}</style></head>
+    .v{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 45%,rgba(55,30,8,.55) 100%),linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(40,22,6,.78) 100%)}</style></head>
     <body><svg width="1080" height="1920" viewBox="0 0 1080 1920">${girih}</svg><div class="v"></div></body></html>`;
   const p2 = await b.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1.5 });
   await p2.setContent(bgHtml);

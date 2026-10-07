@@ -22,6 +22,33 @@ for i, s in enumerate(cfg['scenes']):
 total = out[-1]['start'] + out[-1]['dur']
 json.dump({'fps': cfg['fps'], 'xfade': X, 'total': round(total, 3), 'have_audio': have_audio, 'scenes': out},
           open(os.path.join(R, 'build/timeline.json'), 'w'), ensure_ascii=False, indent=1)
+# --- nutq segmentlari (silencedetect): jumla chegaralari bo'yicha subtitr/karta timing
+def segments(path, alen):
+    r = subprocess.run(['ffmpeg','-v','info','-i',path,'-af','silencedetect=n=-40dB:d=0.28','-f','null','-'],capture_output=True,text=True).stderr
+    st = [float(x) for x in re.findall(r'silence_start: (-?[\d.]+)', r)]; en = [float(x) for x in re.findall(r'silence_end: ([\d.]+)', r)]
+    cuts = []; 
+    for i, a in enumerate(st): cuts.append((max(a, 0), en[i] if i < len(en) else alen))
+    seg = []; cur = 0.0
+    for a, b in cuts:
+        if a - cur > 0.15: seg.append((cur, a))
+        cur = b
+    if alen - cur > 0.15: seg.append((cur, alen))
+    return seg
+for s_ in out:
+    s_['segs'] = None
+    if s_['audio'] and 'sg' in s_:
+        sg = segments(s_['audio'], s_['alen'])
+        if len(sg) == max(s_['sg']) + 1: s_['segs'] = [(s_['start'] + P0 + a, s_['start'] + P0 + b) for a, b in sg]
+        else: print(f"! {s_['id']}: segmentlar {len(sg)} != jumlalar {max(s_['sg'])+1} -> proporsional timing")
+    if s_['segs']:
+        for cd in s_['cards']:
+            if 'sent' in cd:
+                a0, b0 = s_['segs'][cd['sent']]; k = cd['sent']
+                a = a0 + cd['fr'][0]*(b0-a0) - (0.05 if cd['fr'][0] == 0 else 0)
+                b = (s_['start']+s_['dur'] if cd.get('hold') == 'end' or k+1 >= len(s_['segs']) else s_['segs'][k+1][0]) if cd.get('hold') else a0 + cd['fr'][1]*(b0-a0)
+                cd['a'] = round(max(a - s_['start'], 0) / s_['dur'], 4); cd['b'] = round(min(b - s_['start'], s_['dur']) / s_['dur'], 4)
+json.dump({'fps': cfg['fps'], 'xfade': X, 'total': round(total, 3), 'have_audio': have_audio, 'scenes': out},
+          open(os.path.join(R, 'build/timeline.json'), 'w'), ensure_ascii=False, indent=1)
 # --- subtitrlar
 def ts(x, sep=','):
     h, m, sec = int(x // 3600), int(x % 3600 // 60), x % 60
@@ -33,6 +60,12 @@ ev = []
 for s in out:
     lines = s['subs']; w = [len(re.sub(r'\*', '', l)) for l in lines]; tot = sum(w)
     t0 = s['start'] + P0; span = s['alen']
+    if s['segs']:
+        for g in range(len(s['segs'])):
+            idx = [i for i, x in enumerate(s['sg']) if x == g]; a0, b0 = s['segs'][g]; gt = sum(w[i] for i in idx); t1 = a0
+            for i in idx:
+                d = (b0 - a0) * w[i] / gt; ev.append((t1, t1 + d, lines[i])); t1 += d
+        continue
     for l, n in zip(lines, w):
         d = span * n / tot
         ev.append((t0, t0 + d, l)); t0 += d
