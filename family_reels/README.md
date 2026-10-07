@@ -16,10 +16,10 @@ Keyin: `./render.sh` — sahna davomiyligi audio uzunligidan avtomatik olinadi, 
 Bitta sahnani almashtirish: `./render.sh S4`.
 
 ## Hadis (o‘zingizcha to‘qilmagan, tekshirilgan)
-- Arabcha: «لا يفرك مؤمن مؤمنة إن كره منها خلقا رضي منها آخر»
+- Arabcha: «لا يفرك مؤمن مؤمنة، إن كره منها خلقًا رضي منها آخر»
 - Mazmuni: Mo‘min erkak mo‘mina ayolni yomon ko‘rmasin. Agar uning bir xulqini yoqtirmasa, boshqasidan rozi bo‘ladi.
 - Manba: **Sahih Muslim, 1469** (Abu Hurayra r.a.). Hadis raqami va "sahih" hukmi dorar.net / hadeethenc.com orqali tekshirildi.
-- Eslatma: kartada arabcha matn harakatsiz (tashkilsiz) berilgan; o‘zbekcha — so‘zma-so‘z emas, mazmuniy tarjima. Nashrdan oldin bilimdor shaxsga ko‘rsatish tavsiya etiladi.
+- Videoda hadis "yagona sir" sifatida emas, Rasululloh ﷺ nasihati sifatida beriladi (karta sarlavhasi: "Rasululloh ﷺ nasihati"). S4 foni AI'siz, lokal HTML/SVG (`assets/images/s4.png`, avtomatik yaratiladi) — s4.jpg QO‘YMANG. O‘zbekcha — so‘zma-so‘z emas, mazmuniy tarjima. Nashrdan oldin bilimdor shaxsga ko‘rsatish tavsiya etiladi.
 
 ## Papkalar
 `assets/` (images, cards) · `audio/` · `subtitles/` (SRT+ASS) · `scenes/shotlist.md` · `renders/` (sahnalar) · `final/` · `scripts/` · `build/` (vaqt jadvali, gitignore)
@@ -29,3 +29,14 @@ Hozir vaqtlar jumla uzunligiga proporsional (taxminiy). Haqiqiy audio kelgach, a
 
 ## Texnologiyalar
 FFmpeg 6.1 (zoompan, xfade, libass, loudnorm, libx264, aac) · Chromium/Playwright (HTML/CSS → PNG kartalar) · Python (Pillow, numpy) · Inter shrifti.
+
+## Audio/rasmlarni qayerga qo‘yish
+- `audio/vo_S1.wav … vo_S6.wav` (har sahnaga bitta fayl; matn: `voiceover.txt`)
+- `assets/images/s1.jpg, s2.jpg, s3.jpg, s5.jpg, s6.jpg` (S4 uchun rasm kerak emas)
+
+## Tekshiruvlar (render.sh ichida avtomatik)
+- `scripts/check_audio.py` — kanal, sample rate, davomiylik, clipping, jimlik.
+- Audio: 2 o‘tishli loudnorm (-16 LUFS, TP ≤ -1.5 dB) + limiter.
+- `scripts/qc.py` — 1080x1920, 9:16, 30 FPS, H.264/AAC, 35–50 s, qora kadr, subtitr ko‘rinishi/xavfsiz zona, loudness, clipping, oxirgi kadr. Audio bo‘lsa natija `build/candidate.mp4` ga yoziladi va faqat QC o‘tgach `final/family_happiness_reels.mp4` ga ko‘chiriladi.
+- Arabcha shrift: tizimda faqat FreeSerif/DejaVu bor (ishlatilgan: FreeSerif). Yaxshiroq: Amiri yoki Noto Naskh Arabic.
+- Whisper/faster-whisper o‘rnatilmagan; boshqa STT vositasi ham yo‘q. Audio kelgach o‘rnatish ko‘riladi; aks holda subtitr jumla uzunligiga proporsional.

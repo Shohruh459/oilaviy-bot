@@ -1,41 +1,161 @@
 {
-  "fps": 30,
-  "xfade": 0.4,
-  "pad_start": 0.3,
-  "pad_end": 0.9,
-  "scenes": [
-    {"id": "S1", "dur": 4.4, "cam": "in",
-     "vo": "Oilada baxtli yashashning siri nimada?",
-     "subs": ["Oilada baxtli yashashning *siri* nimada?"],
-     "cards": [{"type": "hook", "a": 0.02, "b": 1.0, "main": "Oilada baxtli yashashning *siri* nimada?"}]},
-    {"id": "S2", "dur": 7.0, "cam": "out",
-     "vo": "Rasululloh sollallohu alayhi vasallam oilada yaxshi muomala qilishga katta e'tibor berganlar.",
-     "subs": ["Rasululloh (s.a.v.) oilada", "*yaxshi muomala* qilishga", "katta e'tibor berganlar."],
-     "cards": [{"type": "title", "a": 0.1, "b": 1.0, "small": "Rasululloh ﷺ", "main": "Oilada *yaxshi muomala*"}]},
-    {"id": "S3", "dur": 8.0, "cam": "left",
-     "vo": "Mehribon so'z, o'zaro yordam va sabr. Oila shu bilan mustahkam bo'ladi.",
-     "subs": ["Mehribon so'z, o'zaro yordam va *sabr*.", "Oila shu bilan *mustahkam* bo'ladi."],
-     "cards": [{"type": "title", "a": 0.1, "b": 1.0, "small": "", "main": "Mehr · Yordam · *Sabr*"}]},
-    {"id": "S4", "dur": 10.0, "cam": "in",
-     "vo": "Payg'ambarimiz alayhissalom aytdilar: mo'min erkak mo'mina ayolni yomon ko'rmasin. Agar uning bir xulqini yoqtirmasa, boshqasidan rozi bo'ladi.",
-     "subs": ["Payg'ambarimiz (s.a.v.) aytdilar:", "Mo'min erkak mo'mina ayolni *yomon ko'rmasin.*", "Agar bir xulqini yoqtirmasa,", "*boshqasidan rozi bo'ladi.*"],
-     "cards": [{"type": "hadith", "a": 0.06, "b": 1.0,
-       "arabic": "لا يفرك مؤمن مؤمنة إن كره منها خلقا رضي منها آخر",
-       "uz": "Mo‘min erkak mo‘mina ayolni yomon ko‘rmasin. Agar uning bir xulqini yoqtirmasa, boshqasidan rozi bo‘ladi.",
-       "source": "Manba: Sahih Muslim, 1469 (Abu Hurayra r.a.)"}]},
-    {"id": "S5", "dur": 7.0, "cam": "right",
-     "vo": "Yaxshi gapiring. Bir-biringizni kechiring. Rahmat aytishni unutmang. Oilada mehrni ko'paytiring.",
-     "subs": ["Yaxshi gapiring.", "Bir-biringizni kechiring.", "*Rahmat* aytishni unutmang.", "Oilada *mehrni* ko'paytiring."],
-     "cards": [
-       {"type": "list", "n": 1, "a": 0.02, "b": 0.26, "main": "Yaxshi *gapiring.*"},
-       {"type": "list", "n": 2, "a": 0.26, "b": 0.50, "main": "Bir-biringizni *kechiring.*"},
-       {"type": "list", "n": 3, "a": 0.50, "b": 0.75, "main": "*Rahmat* aytishni unutmang."},
-       {"type": "list", "n": 4, "a": 0.75, "b": 1.0, "main": "Oilada *mehrni* ko‘paytiring."}]},
-    {"id": "S6", "dur": 6.4, "cam": "in",
-     "vo": "Baxtli oila — mehr, sabr va yaxshi muomaladan boshlanadi. Bugun oilangizdagilardan biriga yaxshi so'z ayting.",
-     "subs": ["Baxtli oila — *mehr, sabr* va", "yaxshi muomaladan boshlanadi.", "Bugun oilangizdagilardan biriga", "*yaxshi so'z* ayting."],
-     "cards": [{"type": "closing", "a": 0.04, "b": 1.0,
-       "main": "Baxtli oila — *mehr, sabr* va yaxshi muomaladan boshlanadi.",
-       "sub": "Bugun oilangizdagilardan biriga yaxshi so‘z ayting."}]}
-  ]
+ "fps": 30,
+ "xfade": 0.4,
+ "pad_start": 0.3,
+ "pad_end": 0.9,
+ "scenes": [
+  {
+   "id": "S1",
+   "dur": 4.4,
+   "cam": "in",
+   "vo": "Oilada baxtli yashashning siri nimada?",
+   "subs": [
+    "Oilada baxtli yashashning *siri* nimada?"
+   ],
+   "cards": [
+    {
+     "type": "hook",
+     "a": 0.02,
+     "b": 1.0,
+     "main": "Oilada baxtli yashashning *siri* nimada?"
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "dur": 7.0,
+   "cam": "out",
+   "vo": "Rasululloh sollallohu alayhi vasallam oilada yaxshi muomala qilishga katta e'tibor berganlar.",
+   "subs": [
+    "Rasululloh (s.a.v.) oilada",
+    "*yaxshi muomala* qilishga",
+    "katta e'tibor berganlar."
+   ],
+   "cards": [
+    {
+     "type": "title",
+     "a": 0.1,
+     "b": 1.0,
+     "main": "Yaxshi muomala — oilaning *ziynati.*"
+    }
+   ]
+  },
+  {
+   "id": "S3",
+   "dur": 8.0,
+   "cam": "left",
+   "vo": "Mehribon so'z, o'zaro yordam va sabr. Oila shu bilan mustahkam bo'ladi.",
+   "subs": [
+    "Mehribon so'z, o'zaro yordam va *sabr*.",
+    "Oila shu bilan *mustahkam* bo'ladi."
+   ],
+   "cards": [
+    {
+     "type": "title",
+     "a": 0.0,
+     "b": 0.24,
+     "main": "*Mehribon* so‘z"
+    },
+    {
+     "type": "title",
+     "a": 0.24,
+     "b": 0.44,
+     "main": "O‘zaro *yordam*"
+    },
+    {
+     "type": "title",
+     "a": 0.44,
+     "b": 1.0,
+     "main": "*Sabr*"
+    }
+   ]
+  },
+  {
+   "id": "S4",
+   "dur": 10.0,
+   "cam": "in",
+   "vo": "Payg'ambarimiz alayhissalom aytdilar: mo'min erkak mo'mina ayolni yomon ko'rmasin. Agar uning bir xulqini yoqtirmasa, boshqasidan rozi bo'ladi.",
+   "subs": [
+    "Payg'ambarimiz (s.a.v.) aytdilar:",
+    "Mo'min erkak mo'mina ayolni *yomon ko'rmasin.*",
+    "Agar bir xulqini yoqtirmasa,",
+    "*boshqasidan rozi bo'ladi.*"
+   ],
+   "cards": [
+    {
+     "type": "hadith",
+     "a": 0.05,
+     "b": 1.0,
+     "scale": false,
+     "label": "Rasululloh ﷺ nasihati",
+     "arabic": "لا يفرك مؤمن مؤمنة، إن كره منها خلقًا رضي منها آخر",
+     "uz": "Mo‘min erkak mo‘mina ayolni yomon ko‘rmasin. Agar uning bir xulqini yoqtirmasa, boshqasidan rozi bo‘ladi.",
+     "source": "Sahih Muslim, 1469"
+    }
+   ]
+  },
+  {
+   "id": "S5",
+   "dur": 7.0,
+   "cam": "right",
+   "vo": "Yaxshi gapiring. Bir-biringizni kechiring. Rahmat aytishni unutmang. Oilada mehrni ko'paytiring.",
+   "subs": [
+    "Yaxshi gapiring.",
+    "Bir-biringizni kechiring.",
+    "*Rahmat* aytishni unutmang.",
+    "Oilada *mehrni* ko'paytiring."
+   ],
+   "cards": [
+    {
+     "type": "list",
+     "n": 1,
+     "a": 0.02,
+     "b": 0.26,
+     "main": "Yaxshi *gapiring.*"
+    },
+    {
+     "type": "list",
+     "n": 2,
+     "a": 0.26,
+     "b": 0.5,
+     "main": "Bir-biringizni *kechiring.*"
+    },
+    {
+     "type": "list",
+     "n": 3,
+     "a": 0.5,
+     "b": 0.75,
+     "main": "*Rahmat* aytishni unutmang."
+    },
+    {
+     "type": "list",
+     "n": 4,
+     "a": 0.75,
+     "b": 1.0,
+     "main": "Oilada *mehrni* ko‘paytiring."
+    }
+   ]
+  },
+  {
+   "id": "S6",
+   "dur": 6.4,
+   "cam": "in",
+   "vo": "Baxtli oila — mehr, sabr va yaxshi muomaladan boshlanadi. Bugun oilangizdagilardan biriga yaxshi so'z ayting.",
+   "subs": [
+    "Baxtli oila — *mehr, sabr* va",
+    "yaxshi muomaladan boshlanadi.",
+    "Bugun oilangizdagilardan biriga",
+    "*yaxshi so'z* ayting."
+   ],
+   "cards": [
+    {
+     "type": "closing",
+     "a": 0.04,
+     "b": 1.0,
+     "main": "Baxtli oila — *mehr, sabr* va yaxshi muomaladan boshlanadi.",
+     "sub": "Bugun oilangizdagilardan biriga yaxshi so‘z ayting."
+    }
+   ]
+  }
+ ]
 }

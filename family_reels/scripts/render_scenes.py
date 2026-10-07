@@ -26,9 +26,12 @@ for k, s in enumerate(tl['scenes'], 1):
     for i, (c, cd) in enumerate(zip(cards, s['cards']), 1):
         a, b = cd['a'] * d, cd['b'] * d
         a += 0.25 if i == 1 else 0; b = min(b, d) - (0.0 if i == len(cards) else 0.0)
-        f += (f"[{i}:v]format=rgba,fade=t=in:st={a:.2f}:d=0.4:alpha=1,"
+        # yengil "settle" scale (1.04 -> 1.0, 0.6 s); hadis kartasida ortiqcha animatsiya yo'q
+        sc = (f"scale=w='trunc(1080*(1.04-0.04*min(max(t-{a:.2f},0)/0.6,1))/2)*2':h=-2:eval=frame,"
+              if cd.get('scale', True) else '')
+        f += (f"[{i}:v]format=rgba,{sc}fade=t=in:st={a:.2f}:d=0.4:alpha=1,"
               f"fade=t=out:st={max(a+0.5,b-0.35):.2f}:d=0.35:alpha=1[c{i}];"
-              f"[{last}][c{i}]overlay=0:0:format=auto[v{i}];")
+              f"[{last}][c{i}]overlay=x=(W-w)/2:y=(H-h)/2:format=auto[v{i}];")
         last = f'v{i}'
     f = f.rstrip(';')
     cmd += ['-filter_complex', f, '-map', f'[{last}]', '-t', str(d), '-r', str(fps),

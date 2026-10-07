@@ -11,7 +11,7 @@ def alen(p):
     return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',p]).strip())
 have_audio = True; t = 0.0; out = []
 for i, s in enumerate(cfg['scenes']):
-    ap = os.path.join(R, 'audio', f"vo_{s['id']}.wav")
+    ap = os.path.join(os.environ.get('REELS_AUDIO', os.path.join(R, 'audio')), f"vo_{s['id']}.wav")
     if os.path.exists(ap):
         al = alen(ap); dur = al + P0 + P1
     else:
