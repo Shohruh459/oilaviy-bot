@@ -22,7 +22,7 @@ Birinchi video **09.10.2026 (juma)** da yuklanadi, qolganlari har kuni ketma-ket
 | # | Sana | Mavzu | Holat |
 |---|---|---|---|
 | 1 | 09.10.2026 (juma) | Ilm olishning 5 ta samarali usuli | tayyor: `yuksalish_5_usul.mp4` |
-| 2 | 10.10.2026 (shanba) | Diqqatni jamlashning 5 yo'li | kutilmoqda |
+| 2 | 10.10.2026 (shanba) | Diqqatni jamlashning 5 yo'li | tayyor: `yuksalish_diqqat.mp4` (2-shablon musiqa) |
 | 3 | 11.10.2026 (yakshanba) | Kitob o'qishni odatga aylantirish | kutilmoqda |
 | 4 | 12.10.2026 (dushanba) | Ertalabki 5 ta odat (ilm uchun) | kutilmoqda |
 | 5 | 13.10.2026 (seshanba) | Imtihonga tayyorgarlik: 5 ta maslahat | kutilmoqda |
@@ -76,7 +76,7 @@ Yig'ishda musiqa boshidan olinadi, 1s ichida paydo bo'ladi, oxirgi 3s da so'nadi
 
 - Klip manbai: Pixabay Videos API. Kalit `PIXABAY_API_KEY` muhit o'zgaruvchisida (hech qachon commit qilmang).
 - Python `urllib` Pixabay'da 403 beradi; `curl` ishlaydi.
-- Yig'ish: `ffmpeg` (drawtext, DejaVu Sans Bold — `'` va `–` belgilari to'g'ri chiqadi) + Pillow (CTA animatsiyasi). Skriptlar: `reels/fetch_clips.py` (nomzod klip qidirish va ko'rinishlar to'ri), `reels/build_tips_reel.py` (5 maslahatli video yig'ish). Skript ichidagi yo'llar (`../clips/e.mp4`, musiqa fayli) sessiyaga qarab moslashtiriladi.
+- Yig'ish: `ffmpeg` (drawtext, DejaVu Sans Bold — `'` va `–` belgilari to'g'ri chiqadi) + Pillow (CTA animatsiyasi). Skriptlar: `reels/fetch_clips.py` (nomzod klip qidirish va ko'rinishlar to'ri; `Q` lug'atidagi qidiruv so'zlarini mavzuga qarab o'zgartiring), `reels/build_reel.py` (umumiy yig'uvchi, matnli sahnalar + animatsiyali CTA + Instagram belgisi). Yangi video uchun `reels/specs/` ga JSON spetsifikatsiya yozing (`video2_diqqat.json` namunasi), klipni to'liq HD sifatda `clips/<nom>.mp4` ga yuklang, so'ng `python3 -I reels/build_reel.py reels/specs/<fayl>.json`. Oxirgi kadr fon klipi `clips/cta_bg.mp4` (quyosh chiqishi, Pixabay 153821).
 - Gorizontal klipni 9:16 ga kesishda `crop x` ulushini klipga qarab sozlang (markaz ko'pincha kerakli obyektni kesib tashlaydi). Tayyor kadrni ko'rib tekshiring.
 - Proksi CA: `/root/.ccr/ca-bundle.crt`. TLS tekshiruvini o'chirmang.
 - Tayyor videoni yuborishdan oldin kamida bir nechta kadrni ko'zdan kechiring; faylni `SendUserFile` bilan yuboring va branchga commit/push qiling.

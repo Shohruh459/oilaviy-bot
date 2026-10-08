@@ -1,0 +1,14 @@
+{
+  "out": "yuksalish_diqqat.mp4",
+  "music": "/home/user/oilaviy-bot/reels/music/2_fokus_lofi_study.mp3",
+  "music_start": 0,
+  "scenes": [
+    {"clip": "hook_1", "dur": 3.5, "xfrac": 0.6, "top": 1060, "lines": [["Kitob ochasiz-u,", 80, "white"], ["fikr boshqa yoqdami?", 72, "white"], ["Diqqatni jamlashga yordam", 46, "0xFFD54F"], ["beradigan 5 ta usul ↓", 46, "0xFFD54F"]]},
+    {"clip": "t1_1", "dur": 5, "top": 1000, "lines": [["1-usul", 42, "0xFFD54F"], ["Telefonni boshqa", 62, "white"], ["xonaga qo'ying", 62, "white"], ["Ko'zdan uzoq bo'lsa,", 44, "0xE6E6E6"], ["chalg'ish kamayadi", 44, "0xE6E6E6"]]},
+    {"clip": "t2_0", "dur": 5, "xfrac": 0.45, "top": 1000, "lines": [["2-usul", 42, "0xFFD54F"], ["25 daqiqa o'qing,", 62, "white"], ["5 daqiqa dam oling", 62, "white"], ["Qisqa bosqichlar diqqatni", 44, "0xE6E6E6"], ["saqlashga yordam beradi", 44, "0xE6E6E6"]]},
+    {"clip": "t5_2", "dur": 5, "top": 1030, "lines": [["3-usul", 42, "0xFFD54F"], ["Stolingizni tozalang", 62, "white"], ["Faqat kerakli narsa", 44, "0xE6E6E6"], ["ko'z oldingizda qolsin", 44, "0xE6E6E6"]]},
+    {"clip": "t5_3", "dur": 5, "top": 1000, "lines": [["4-usul", 42, "0xFFD54F"], ["Bir vaqtda", 62, "white"], ["bitta ish qiling", 62, "white"], ["Bir vazifani tugatib,", 44, "0xE6E6E6"], ["keyingisiga o'ting", 44, "0xE6E6E6"]]},
+    {"clip": "t5_1", "dur": 5, "xfrac": 0.6, "top": 1000, "lines": [["5-usul", 42, "0xFFD54F"], ["Maqsadni oldindan", 62, "white"], ["belgilab qo'ying", 62, "white"], ["Bugun nimani o'rganasiz?", 44, "0xE6E6E6"], ["Yozib qo'ying", 44, "0xE6E6E6"]]}
+  ],
+  "cta": {"bg": "cta_bg", "order": ["save", "send", "follow"], "dur": 5.5}
+}
