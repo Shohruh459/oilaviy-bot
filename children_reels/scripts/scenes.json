@@ -1,0 +1,190 @@
+{
+ "fps": 30,
+ "xfade": 0.4,
+ "pad_start": 0.3,
+ "pad_end": 0.9,
+ "scenes": [
+  {
+   "id": "S1",
+   "dur": 5.0,
+   "cam": "in",
+   "vo": "Farzandingiz sizning nasihatingizni emas, avvalo muomalangizni o'rganadi.",
+   "subs": [
+    "Farzandingiz nasihatingizni emas,",
+    "avvalo *muomalangizni* o'rganadi."
+   ],
+   "sg": [
+    0,
+    0
+   ],
+   "cards": [
+    {
+     "type": "hook",
+     "a": 0.02,
+     "b": 1.0,
+     "y": 170,
+     "fs": 100,
+     "main": "Farzandingiz sizdan *nimani* o‘rganmoqda?"
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "dur": 8.0,
+   "cam": "out",
+   "vo": "Bola sizning ovozingizdan sabrni, qo'lingizdan mehrni, muomalangizdan esa odobni o'rganadi.",
+   "subs": [
+    "Bola ovozingizdan *sabrni,*",
+    "qo'lingizdan *mehrni,*",
+    "muomalangizdan esa *odobni* o'rganadi."
+   ],
+   "sg": [
+    0,
+    0,
+    0
+   ],
+   "cards": [
+    {
+     "type": "title",
+     "sent": 0,
+     "fr": [
+      0,
+      0.36
+     ],
+     "a": 0.05,
+     "b": 0.36,
+     "y": 150,
+     "main": "*Sabr*"
+    },
+    {
+     "type": "title",
+     "sent": 0,
+     "fr": [
+      0.36,
+      0.66
+     ],
+     "a": 0.36,
+     "b": 0.66,
+     "y": 150,
+     "main": "*Mehr*"
+    },
+    {
+     "type": "title",
+     "sent": 0,
+     "fr": [
+      0.66,
+      1
+     ],
+     "hold": "end",
+     "a": 0.66,
+     "b": 1.0,
+     "y": 150,
+     "main": "*Odob*"
+    }
+   ]
+  },
+  {
+   "id": "S3",
+   "dur": 7.5,
+   "cam": "left",
+   "vo": "Farzandingiz xato qilganda uni faqat koyish emas, to'g'ri yo'lni ko'rsatish ham tarbiyadir.",
+   "subs": [
+    "Xato qilganda faqat koyish emas,",
+    "*to'g'ri yo'lni* ko'rsatish ham tarbiyadir."
+   ],
+   "sg": [
+    0,
+    0
+   ],
+   "cards": []
+  },
+  {
+   "id": "S4",
+   "dur": 8.5,
+   "cam": "in",
+   "vo": "Rasululloh sollallohu alayhi vasallam aytdilar: kim rahm qilmasa, unga rahm qilinmaydi.",
+   "subs": [
+    "Rasululloh (s.a.v.) aytdilar:",
+    "Kim *rahm qilmasa,*",
+    "unga *rahm qilinmaydi.*"
+   ],
+   "sg": [
+    0,
+    1,
+    1
+   ],
+   "cards": [
+    {
+     "type": "hadith",
+     "a": 0.05,
+     "b": 1.0,
+     "scale": false,
+     "label": "Rasululloh ﷺ nasihati",
+     "arabic": "مَن لا يَرحَم لا يُرحَم",
+     "uz": "Kim rahm qilmasa, unga rahm qilinmaydi.",
+     "source": "Sahih al-Bukhari, 5997 · Sahih Muslim, 2318"
+    }
+   ]
+  },
+  {
+   "id": "S5",
+   "dur": 7.0,
+   "cam": "right",
+   "vo": "Bugun farzandingizga bir marta ko'proq baqirish o'rniga, bir marta ko'proq tushuntirib ko'ring.",
+   "subs": [
+    "Bir marta ko'proq *baqirish* o'rniga,",
+    "bir marta ko'proq *tushuntirib* ko'ring."
+   ],
+   "sg": [
+    0,
+    0
+   ],
+   "cards": [
+    {
+     "type": "title",
+     "a": 0.08,
+     "b": 1.0,
+     "y": 150,
+     "fs": 88,
+     "main": "Baqirishdan oldin — *tushuntiring.*"
+    }
+   ]
+  },
+  {
+   "id": "S6",
+   "dur": 8.0,
+   "cam": "in",
+   "vo": "Chunki mehr bilan berilgan tarbiya bolaning qalbida uzoqroq qoladi. Farzandingizga bugun bir yaxshi so'z ayting.",
+   "subs": [
+    "Mehr bilan berilgan tarbiya",
+    "bolaning qalbida *uzoqroq qoladi.*",
+    "Farzandingizga bugun",
+    "bir *yaxshi so'z* ayting."
+   ],
+   "sg": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "cards": [
+    {
+     "type": "closing",
+     "sent": 1,
+     "fr": [
+      0,
+      1
+     ],
+     "hold": "end",
+     "a": 0.5,
+     "b": 1.0,
+     "y": 150,
+     "fs": 84,
+     "main": "Bugun bir *yaxshi so‘z* ayting. ❤️",
+     "sub": "",
+     "foot": "Saqlab qo‘ying va yaqinlaringiz bilan ulashing."
+    }
+   ]
+  }
+ ]
+}

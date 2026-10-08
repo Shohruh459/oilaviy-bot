@@ -1,0 +1,29 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Default,Inter,64,&H00FFFFFF,&H00FFFFFF,&H00101010,&H80000000,-1,0,0,0,100,100,0,0,1,5,2,2,90,90,340,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:00.30,0:00:02.50,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Farzandingiz nasihatingizni emas,
+Dialogue: 0,0:00:02.55,0:00:04.61,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}avvalo {\c&H66C7F2&}muomalangizni{\c&HFFFFFF&} o'rganadi.
+Dialogue: 0,0:00:05.46,0:00:07.10,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Bola ovozingizdan {\c&H66C7F2&}sabrni,{\c&HFFFFFF&}
+Dialogue: 0,0:00:07.15,0:00:08.45,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}qo'lingizdan {\c&H66C7F2&}mehrni,{\c&HFFFFFF&}
+Dialogue: 0,0:00:08.50,0:00:10.87,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}muomalangizdan esa {\c&H66C7F2&}odobni{\c&HFFFFFF&} o'rganadi.
+Dialogue: 0,0:00:11.72,0:00:13.93,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Xato qilganda faqat koyish emas,
+Dialogue: 0,0:00:13.98,0:00:16.81,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}{\c&H66C7F2&}to'g'ri yo'lni{\c&HFFFFFF&} ko'rsatish ham tarbiyadir.
+Dialogue: 0,0:00:17.66,0:00:20.37,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Rasululloh (s.a.v.) aytdilar:
+Dialogue: 0,0:00:20.89,0:00:21.91,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Kim {\c&H66C7F2&}rahm qilmasa,{\c&HFFFFFF&}
+Dialogue: 0,0:00:21.96,0:00:23.22,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}unga {\c&H66C7F2&}rahm qilinmaydi.{\c&HFFFFFF&}
+Dialogue: 0,0:00:24.07,0:00:26.52,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Bir marta ko'proq {\c&H66C7F2&}baqirish{\c&HFFFFFF&} o'rniga,
+Dialogue: 0,0:00:26.57,0:00:29.24,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}bir marta ko'proq {\c&H66C7F2&}tushuntirib{\c&HFFFFFF&} ko'ring.
+Dialogue: 0,0:00:30.09,0:00:31.75,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Mehr bilan berilgan tarbiya
+Dialogue: 0,0:00:31.80,0:00:33.78,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}bolaning qalbida {\c&H66C7F2&}uzoqroq qoladi.{\c&HFFFFFF&}
+Dialogue: 0,0:00:34.45,0:00:35.54,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}Farzandingizga bugun
+Dialogue: 0,0:00:35.59,0:00:36.85,Default,,0,0,0,,{\fad(180,180)\fscx92\fscy92\t(0,220,\fscx100\fscy100)}bir {\c&H66C7F2&}yaxshi so'z{\c&HFFFFFF&} ayting.

@@ -2,7 +2,7 @@
 
 Repo ikki qismdan iborat:
 - Telegram bot (`bot.py`, `database.py`, `questions.py`) — bu loyihaga tegmang, agar so‘ralmasa.
-- `family_reels/` — Instagram Reels (9:16, ~42 s) video pipeline'i. Quyidagi qoidalar shu qism uchun.
+- `family_reels/` — 1-Reels (oilaviy baxt, Madina ovozi, tayyor). `children_reels/` — 2-Reels (farzand tarbiyasi, Sardor ovozi, final: `final/family_children_mercy_reels.mp4`). Ikkalasida bir xil pipeline; qoidalar ikkalasiga tegishli (yo‘llarni `family_reels/` o‘rniga mos papka bilan almashtiring).
 
 ## Loyiha
 - Hammasi `family_reels/` ichida: `scripts/scenes.json` (yagona haqiqat manbai: matn, subtitr, kartalar, kamera), `render.sh` (to‘liq pipeline).
