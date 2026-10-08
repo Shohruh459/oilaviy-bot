@@ -5,11 +5,12 @@ Repo ikki qismdan iborat:
 - `family_reels/` — 1-Reels (oilaviy baxt, Madina ovozi, tayyor). `children_reels/` — 2-Reels (farzand tarbiyasi, Sardor ovozi, final: `final/family_children_mercy_reels.mp4`). Ikkalasida bir xil pipeline; qoidalar ikkalasiga tegishli (yo‘llarni `family_reels/` o‘rniga mos papka bilan almashtiring).
 
 ## Loyiha
-- Hammasi `family_reels/` ichida: `scripts/scenes.json` (yagona haqiqat manbai: matn, subtitr, kartalar, kamera), `render.sh` (to‘liq pipeline).
+- Hammasi loyiha papkasi (`family_reels/` yoki `children_reels/`) ichida: `scripts/scenes.json` (yagona haqiqat manbai: matn, subtitr, kartalar, kamera), `render.sh` (to‘liq pipeline).
 - Pipeline tartibi: `render_cards.js` → `make_timeline.py` → `make_placeholders.py` → `check_audio.py` → `render_scenes.py` → `assemble.py` → `qc.py`.
-- Final fayl `final/family_happiness_reels.mp4` ga FAQAT `qc.py` o‘tgach ko‘chiriladi (`build/candidate.mp4` orqali). QC'ni chetlab o‘tmang.
+- Final fayl (`final/family_happiness_reels.mp4` yoki `final/family_children_mercy_reels.mp4`) ga FAQAT `qc.py` o‘tgach ko‘chiriladi (`build/candidate.mp4` orqali). QC'ni chetlab o‘tmang.
 - Pipeline tuzilmasini o‘zgartirmang; kontentni `scenes.json` va `render_cards.js` orqali o‘zgartiring.
 - `build/` gitignore'da (vaqtinchalik fayllar).
+- Sahna foni: `assets/images/sN.jpg|png` (rasm, Ken Burns) YOKI `sN.mp4|mov|webm|m4v` (video, ustuvor; 9:16 ga cover-crop, qisqa bo‘lsa loop, ovozi ishlatilmaydi). `scenes.json` sahnasida ixtiyoriy: `vstart` (boshlanish soniyasi), `vfocus` (0..1, gorizontal crop markazi). Pixabay uchun: muhit tarmog‘iga `pixabay.com`, `cdn.pixabay.com` ruxsati va `PIXABAY_API_KEY` secret kerak; klip litsenziyasi/mosligini tekshiring, stock'da oila har kadrda boshqa bo‘ladi.
 
 ## Audio / TTS
 - Ovoz: `uz-UZ-MadinaNeural` (Edge TTS), `python3 scripts/make_voiceover.py [S2 ...]` — bitta sahnani qayta yaratish mumkin.

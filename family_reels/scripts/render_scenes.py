@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""Har sahnani alohida renderlaydi (renders/S*.mp4): fon (Ken Burns) + HTML kartalar (fade)."""
+"""Har sahnani alohida renderlaydi (renders/S*.mp4): fon + HTML kartalar (fade).
+Fon: assets/images/sN.{mp4,mov,webm,m4v} (video, ustuvor) yoki sN.{jpg,jpeg,png} (rasm, Ken Burns).
+Video: 9:16 ga markazdan "cover" crop; qisqa bo'lsa loop; ovozi ishlatilmaydi. scenes.json'dagi ixtiyoriy kalitlar:
+  "vstart": klip boshlanish soniyasi (default 0), "vfocus": gorizontal crop markazi 0..1 (default 0.5; 0=chap, 1=o'ng)."""
 import json, os, subprocess, sys, glob
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 tl = json.load(open(f'{R}/build/timeline.json')); fps = tl['fps']
 only = sys.argv[1:]  # masalan: render_scenes.py S4  (faqat bitta sahnani qayta render)
+VIDEO_EXT = ('mp4','mov','webm','m4v')
 def bg_for(n):
-    for e in ('jpg','jpeg','png'):
+    for e in VIDEO_EXT + ('jpg','jpeg','png'):
         p = f'{R}/assets/images/s{n}.{e}'
         if os.path.exists(p): return p, False
     return f'{R}/assets/images/placeholder_s{n}.jpg', True
@@ -17,11 +21,20 @@ for k, s in enumerate(tl['scenes'], 1):
           'out':  f"z='1.10-0.10*on/{N}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'",
           'left': f"z='1.08':x='(iw-iw/zoom)*(1-on/{N})':y='ih/2-(ih/zoom/2)'",
           'right':f"z='1.08':x='(iw-iw/zoom)*(on/{N})':y='ih/2-(ih/zoom/2)'"}[s['cam']]
-    cmd = ['ffmpeg','-y','-v','error','-loop','1','-t',str(d),'-i',bg]
+    is_video = bg.rsplit('.', 1)[-1].lower() in VIDEO_EXT
+    if is_video:
+        cmd = ['ffmpeg','-y','-v','error','-ss',str(s.get('vstart', 0)),'-stream_loop','-1','-t',str(d),'-i',bg]
+    else:
+        cmd = ['ffmpeg','-y','-v','error','-loop','1','-t',str(d),'-i',bg]
     cards = sorted(glob.glob(f"{R}/assets/cards/{s['id']}_*.png"))
     for c in cards: cmd += ['-loop','1','-t',str(d),'-i',c]
-    f = (f"[0:v]scale=2160:3840:force_original_aspect_ratio=increase,crop=2160:3840,"
-         f"zoompan={zp}:d={N}:s=1080x1920:fps={fps},format=yuv420p[bg0];")
+    if is_video:
+        fx = min(max(float(s.get('vfocus', 0.5)), 0), 1)
+        f = (f"[0:v]fps={fps},scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,"
+             f"crop=1080:1920:x='(iw-1080)*{fx}':y='(ih-1920)/2',setsar=1,format=yuv420p[bg0];")
+    else:
+        f = (f"[0:v]scale=2160:3840:force_original_aspect_ratio=increase,crop=2160:3840,"
+             f"zoompan={zp}:d={N}:s=1080x1920:fps={fps},format=yuv420p[bg0];")
     last = 'bg0'
     for i, (c, cd) in enumerate(zip(cards, s['cards']), 1):
         a, b = cd['a'] * d, cd['b'] * d
@@ -36,5 +49,5 @@ for k, s in enumerate(tl['scenes'], 1):
     f = f.rstrip(';')
     cmd += ['-filter_complex', f, '-map', f'[{last}]', '-t', str(d), '-r', str(fps),
             '-c:v','libx264','-preset','medium','-crf','16','-pix_fmt','yuv420p', f"{R}/renders/{s['id']}.mp4"]
-    print('render', s['id'], '(placeholder fon)' if ph else '', flush=True)
+    print('render', s['id'], '(placeholder fon)' if ph else '(video)' if is_video else '', flush=True)
     subprocess.run(cmd, check=True)
