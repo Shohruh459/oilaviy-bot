@@ -57,7 +57,20 @@ Foydalanuvchi musiqani o'zi Pixabay Music'dan yuklab beradi (Pixabay musiqa API'
 | 5. Tezkor | `upbeat positive`, `happy corporate` | tezkor maslahatlar, vaqt boshqaruvi |
 | 6. Vlog | `vlog background`, `light chill` | umumiy, til o'rganish |
 
-Talab: so'zsiz (instrumental), kamida 40 soniya, `.mp3`. Berilgan musiqa: `echoes_of_lumen-vlog-background-music-596303.mp3` (57s, 6-shablon).
+Talab: so'zsiz (instrumental), kamida 40 soniya, `.mp3`.
+
+Foydalanuvchi 6 ta shablonning hammasini yuklab bergan, fayllar `reels/music/` da (Pixabay litsenziyasi):
+
+| Shablon | Fayl | Davomiyligi |
+|---|---|---|
+| 1. Ilhom | `reels/music/1_ilhom_inspiring.mp3` | 2:38 |
+| 2. Fokus | `reels/music/2_fokus_lofi_study.mp3` | 2:02 |
+| 3. Ertalab | `reels/music/3_ertalab_sunny_morning_walk.mp3` | 2:28 |
+| 4. Sokin | `reels/music/4_sokin_relaxing.mp3` | 1:12 |
+| 5. Tezkor | `reels/music/5_tezkor_business_corporate.mp3` | 2:19 |
+| 6. Vlog | `reels/music/6_vlog_the_vlog.mp3`, `reels/music/6_vlog_echoes_of_lumen.mp3` | 1:16, 0:57 |
+
+Yig'ishda musiqa boshidan olinadi, 1s ichida paydo bo'ladi, oxirgi 3s da so'nadi. Shu bilan 1-video (`yuksalish_5_usul.mp4`) 6-shablon `echoes_of_lumen` bilan yig'ilgan.
 
 ## Texnik eslatmalar
 
