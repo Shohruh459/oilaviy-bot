@@ -119,6 +119,12 @@ Yig'ishda musiqa boshidan olinadi, 1s ichida paydo bo'ladi, oxirgi 3s da so'nadi
 - Audio: `alimiter=limit=0.89:level=false` (level=false shart; aks holda cho'qqi 0 dB ga ko'tariladi). O'rtacha ovoz balandligi ~ -18 dB, cho'qqi ~ -1.4 dB; eski videolarda audio keyin `volume=-1.5dB` bilan tuzatilgan.
 - Yakuniy ASR (8 video): o'rtacha CER 25–34% (tabiiy nutqda 6%), eng yomon gap CER ~43% (CTA). Bu asosiy Meta modelining chegarasi.
 
+### Boshqa bepul o'zbek TTS nomzodlari (tadqiq, hali sinalmagan)
+- **Chatterbox o'zbek LoRA** (MIT; kod PyPI `chatterbox-tts`, asos `ResembleAI/chatterbox` HF, MIT): `UAzimov/Uzbek-tts-chatterbox` (111 soat ko'p ovozli ruxsatli korpus, lotin yozuv, CPU'da ishlaydi, nomukammal ravonlik), `Abduqayum/uzbek-tts-natural-speech-chatterbox` (30 soat bitta diktor audiokitob, birlashtirilgan T3 vazni + `inference.py`, ovoz klonlash). Qo'shimcha domen kerak emas (HF + PyPI). Audiokitob diktori ovozi/huquqlari noaniq: ehtiyot bo'ling.
+- **Navoiy TTS** (`aisha-org/navoiy-tts`, Apache-2.0, CosyVoice2-0.5B asosida, 600 soat neytral + 40 soat ifodali, ovoz klonlash): faqat LLM checkpoint (1.88 GiB), ishlashi uchun `github.com/FunAudioLLM/CosyVoice` kodi kerak (`github.com` va `codeload.github.com` hozir 403; `raw.githubusercontent.com` ochiq) va `FunAudioLLM/CosyVoice2-0.5B` (HF).
+- Coqui XTTS va Piper'da tayyor o'zbek ovozi topilmadi. Ma'lumotlar: ISSAI USC (CC BY 4.0, 105 soat), `aisha-org/uzbek-tts-corpus-v1`.
+- Sinash usuli: shu hujjatdagi ASR (`hear.py`) o'lchovlari (CER, unlilar, shimmer, ovoz egasi) bilan A variantiga solishtirish.
+
 ### Talaffuz tuzatishlari
 (hozircha bo'sh; foydalanuvchi talaffuz xatolarini aytgach to'ldiriladi)
 
