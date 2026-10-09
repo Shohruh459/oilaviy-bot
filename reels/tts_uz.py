@@ -56,25 +56,70 @@ def lat2cyr(text: str) -> str:
 
 
 _model = _tok = None
+_DEFAULTS = {}
+PAUSE = {',': 0.22, ':': 0.30, ';': 0.30, '.': 0.40, '?': 0.45, '!': 0.40}
 
 
-def synth(text: str, path: str, speaking_rate: float = 1.0, seed: int = 555):
+def _load():
     global _model, _tok
-    import torch, numpy as np
-    from scipy.io import wavfile
     from transformers import VitsModel, AutoTokenizer
     if _model is None:
         _model = VitsModel.from_pretrained(MODEL).eval()
         _tok = AutoTokenizer.from_pretrained(MODEL)
-    _model.speaking_rate = speaking_rate
-    cyr = lat2cyr(text)
+        _DEFAULTS.update(ns=_model.noise_scale, nsd=_model.noise_scale_duration)
+
+
+def _clause_wave(cyr, seed):
+    import torch
     ids = _tok(cyr, return_tensors='pt')
     torch.manual_seed(seed)
     with torch.no_grad():
-        wav = _model(**ids).waveform[0].numpy()
+        return _model(**ids).waveform[0].numpy()
+
+
+def synth(text: str, path: str, speaking_rate: float = 1.0, seed: int = 555,
+          noise_scale=None, noise_scale_duration=None, pauses: bool = True, chunk_words=None, chunk_pause=0.06, lowpass_hz=None):
+    """Matnni ovozga aylantiradi.
+    Model vocab'ida tinish belgilari yo'q (vergul, so'roq, nuqta, ikki nuqta tashlab yuboriladi), shuning uchun
+    pauses=True bo'lsa matn tinish belgilari bo'yicha bo'laklarga bo'linadi, har bo'lak alohida o'qiladi va
+    orasiga jimlik qo'yiladi (ritm va gap oxiri ohangi uchun)."""
+    import numpy as np
+    from scipy.io import wavfile
+    _load()
+    _model.speaking_rate = speaking_rate
+    _model.noise_scale = _DEFAULTS['ns'] if noise_scale is None else noise_scale
+    _model.noise_scale_duration = _DEFAULTS['nsd'] if noise_scale_duration is None else noise_scale_duration
+    sr = _model.config.sampling_rate
+    if pauses:
+        parts = [p for p in re.split(r'([,.?!:;]+)', text) if p.strip()]
+    else:
+        parts = [text]
+    pieces, last_clause = [], None
+    for p in parts:
+        if re.fullmatch(r'[,.?!:;]+', p.strip()):
+            if last_clause is not None:
+                pieces.append(np.zeros(int(sr * PAUSE.get(p.strip()[0], 0.25)), dtype=np.float32))
+            continue
+        words = p.split()
+        n = chunk_words or len(words)
+        subs = [' '.join(words[k:k + n]) for k in range(0, len(words), n)]
+        for si, sub in enumerate(subs):
+            cyr = lat2cyr(sub)
+            if not cyr:
+                continue
+            w = _clause_wave(cyr, seed)
+            w = w / max(1e-9, float(np.sqrt(np.mean(w ** 2)))) * 0.1   # har bo'lak bir xil ovoz balandligida
+            if si > 0:
+                pieces.append(np.zeros(int(sr * chunk_pause), dtype=np.float32))
+            pieces.append(w); last_clause = cyr
+    wav = np.concatenate(pieces)
+    if lowpass_hz:  # yuqori chastotali shovqinni kesish (fine-tune model muallifi 7000 Hz tavsiya qiladi)
+        import scipy.signal as sig
+        b, a = sig.butter(2, lowpass_hz / (sr / 2), btype='low')
+        wav = sig.filtfilt(b, a, wav).astype(np.float32)
     wav = wav / max(1e-9, np.abs(wav).max()) * 0.9
-    wavfile.write(path, _model.config.sampling_rate, (wav * 32767).astype(np.int16))
-    return cyr, len(wav) / _model.config.sampling_rate
+    wavfile.write(path, sr, (wav * 32767).astype(np.int16))
+    return lat2cyr(text), len(wav) / sr
 
 
 if __name__ == '__main__':
