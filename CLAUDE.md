@@ -125,6 +125,12 @@ Yig'ishda musiqa boshidan olinadi, 1s ichida paydo bo'ladi, oxirgi 3s da so'nadi
 - Coqui XTTS va Piper'da tayyor o'zbek ovozi topilmadi. Ma'lumotlar: ISSAI USC (CC BY 4.0, 105 soat), `aisha-org/uzbek-tts-corpus-v1`.
 - Sinash usuli: shu hujjatdagi ASR (`hear.py`) o'lchovlari (CER, unlilar, shimmer, ovoz egasi) bilan A variantiga solishtirish.
 
+### Chatterbox o'zbek (yangi nomzod, sinovdan o'tgan; qaror kutilmoqda)
+- **Natija (ASR, 7 gap):** A (Meta) CER 28%, unlilar 69%; `ABD` (Abduqayum) CER 13%, unlilar 97%; `UAZ` (UAzimov LoRA) CER **10%**, unlilar **99%**, shimmer 9.0, ovoz o'xshashligi 0.96. Namuna ovozga qarab: diktor namunasi (audiokitob) ohang ~12 yarim ton (yuqori, ayol ovozi), FLEURS erkak namuna CER 17% shimmer 11.9, **standart ovoz (namunasiz, `conds.pt`, MIT) CER 8%, shimmer 11.1, ohang 5.7** (A ovozi ~4.4). Hozirgi Meta ovozini namuna qilib klonlash aniqlikni pasaytiradi (CER 20–33%).
+- **Litsenziya:** Chatterbox va ikkala o'zbek LoRA MIT (tijoratga ruxsat). Namuna ovozlar: audiokitob diktori va FLEURS ovozlari haqiqiy odamlarniki, ularning roziligi/shartlari noaniq: **standart ovoz (namunasiz)** yoki o'zi rozi bergan odam ovozi afzal.
+- **Sozlash (`reels/chatterbox/`):** Python 3.11 venv (`uv venv --python 3.11 cbenv`), `uv pip install chatterbox-tts silero-vad "peft==0.17.1" num2words "setuptools<81"`, so'ng **`transformers==4.46.3` va `tokenizers<0.21`** (toolkit eski transformers uchun yozilgan). `github.com` bloklangan, lekin `raw.githubusercontent.com` ochiq: `crawl_toolkit.py` `gokhaneraslan/chatterbox-finetuning` fayllarini import zanjiri bo'yicha yuklaydi (`src/`). `download_models.sh` asos Chatterbox vaznlari (`ResembleAI/chatterbox`: ve, t3_cfg, s3gen, conds, tokenizer=`grapheme_mtl_merged_expanded_v1.json`) va o'zbek fayllarni (`UAzimov/Uzbek-tts-chatterbox` adapter, `Abduqayum/...` merged T3 + reference_voice.wav) yuklaydi. Disk ~10 GB kerak (venv 6 GB + vaznlar 4 GB).
+- **Ishlatish:** `gen_refs.py <ref.wav|none[,...]> lines.json outdir` (UAzimov adapteri `uz_uaz/`, `PeftModel.merge_and_unload`). Matnda ASCII apostrof (`'`), raqamlarni so'z bilan. Bir vaqtda ikkita generatsiya jarayonini ishga tushirmang (xotira 15 GB, to'xtab qoladi: 3 s/token). Bir gap ~5–10 s CPU'da. `VAD` yuklash xatosi (silero torch.hub, github) zararsiz.
+
 ### Talaffuz tuzatishlari
 (hozircha bo'sh; foydalanuvchi talaffuz xatolarini aytgach to'ldiriladi)
 
