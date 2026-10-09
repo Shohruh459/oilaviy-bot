@@ -12,6 +12,21 @@ GOLD = (255, 213, 79)
 spec = json.load(open(sys.argv[1]))
 for d in ('seg', 'txt', 'ov'):
     os.makedirs(d, exist_ok=True)
+if os.environ.get('NOVOICE'):  # ovozsiz (faqat musiqa) variant
+    for _sc in spec['scenes']:
+        _sc.pop('voice', None)
+    spec['cta'].pop('voice', None)
+
+def audio_len(p):
+    r = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p],
+                       capture_output=True, text=True, check=True)
+    return float(r.stdout)
+
+# Ovozli video: har sahna davomiyligi = ovoz uzunligi + kechikish + 0.9s (kamida "dur")
+VOICE_DELAY = spec.get('voice_delay', 0.4)
+for sc in spec['scenes']:
+    if sc.get('voice'):
+        sc['dur'] = round(max(sc.get('dur', 0), audio_len(sc['voice']) + VOICE_DELAY + 0.9), 2)
 
 # ---------------- matnli sahnalar ----------------
 def text_scene(i, sc):
@@ -28,8 +43,8 @@ def text_scene(i, sc):
         f.append(f"drawtext=fontfile={FONT}:textfile={p}:fontsize={s}:fontcolor={col}:x=(w-text_w)/2:y={yy}:"
                  f"alpha='min(1,max(0,(t-{0.15 * j})/0.4))'")
     f += ["fade=t=in:d=0.3", f"fade=t=out:st={d - 0.3}:d=0.3", "format=yuv420p"]
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(sc.get('start', 0.5)), '-t', str(d),
-                    '-i', f"clips/{c}.mp4", '-vf', ",".join(f), '-an',
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-stream_loop', '-1', '-ss', str(sc.get('start', 0.5)),
+                    '-t', str(d), '-i', f"clips/{c}.mp4", '-vf', ",".join(f), '-an',
                     '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', f'seg/{i}.mp4'], check=True)
 
 for i, sc in enumerate(spec['scenes']):
@@ -91,6 +106,8 @@ order = cta.get('order', ['save', 'send', 'follow'])
 ICONS = [(k,) + CATALOG[k] for k in order]
 XS = [195, 540, 885]; CY = 1010; R = 118
 FPS, DUR = 30, cta.get('dur', 5.5)
+if cta.get('voice'):
+    DUR = round(max(DUR, audio_len(cta['voice']) + VOICE_DELAY + 0.9), 2)
 glyphs = [glyph(k, 130) for k, *_ in ICONS]
 ig = instagram_icon(96)
 brand = cta.get('brand', 'YUKSALISH')
@@ -136,8 +153,33 @@ subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', '1', '-t', str(DUR), '-i',
 segs = [f'seg/{i}.mp4' for i in range(len(spec['scenes']))] + ['seg/cta.mp4']
 open('list.txt', 'w').write("\n".join(f"file '{s}'" for s in segs))
 total = sum(s['dur'] for s in spec['scenes']) + DUR
-subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-i', 'list.txt',
-                '-ss', str(spec.get('music_start', 0)), '-i', spec['music'], '-t', str(total),
-                '-af', f'afade=t=in:d=1,afade=t=out:st={total - 3}:d=3', '-map', '0:v', '-map', '1:a',
-                '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', spec['out']], check=True)
+voices, t0 = [], 0.0
+for sc in spec['scenes']:
+    if sc.get('voice'):
+        voices.append((sc['voice'], t0 + VOICE_DELAY))
+    t0 += sc['dur']
+if cta.get('voice'):
+    voices.append((cta['voice'], t0 + VOICE_DELAY))
+
+cmd = ['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-i', 'list.txt',
+       '-ss', str(spec.get('music_start', 0)), '-i', spec['music']]
+if not voices:
+    cmd += ['-t', str(total), '-af', f'afade=t=in:d=1,afade=t=out:st={total - 3}:d=3', '-map', '0:v', '-map', '1:a']
+else:
+    for p, _ in voices:
+        cmd += ['-i', p]
+    parts, labels = [], []
+    for k, (_, st) in enumerate(voices):
+        parts.append(f"[{k + 2}:a]aresample=44100,adelay={int(st * 1000)}:all=1,volume={spec.get('voice_gain', 1.5)}[v{k}]")
+        labels.append(f'[v{k}]')
+    parts.append(("".join(labels) + f"amix=inputs={len(voices)}:normalize=0:dropout_transition=0[vo]") if len(voices) > 1
+                 else "[v0]anull[vo]")
+    parts.append(f"[1:a]aresample=44100,volume={spec.get('music_gain', 0.6)}[m]")
+    parts.append("[vo]asplit[vk][vm]")
+    parts.append("[m][vk]sidechaincompress=threshold=0.015:ratio=12:attack=30:release=700[md]")
+    parts.append("[md][vm]amix=inputs=2:normalize=0:duration=longest[mix]")
+    parts.append(f"[mix]atrim=0:{total},afade=t=in:d=1,afade=t=out:st={total - 3}:d=3,alimiter=limit=0.95,aformat=channel_layouts=stereo[a]")
+    cmd += ['-filter_complex', ";".join(parts), '-map', '0:v', '-map', '[a]', '-t', str(total)]
+cmd += ['-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', spec['out']]
+subprocess.run(cmd, check=True)
 print('total', total, '->', spec['out'])
