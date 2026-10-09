@@ -150,7 +150,7 @@ Davom etishga yordam beradigan 5 ta usul:
 1️⃣ Besh daqiqa qoidasi
 2️⃣ Yengilroq mavzuni tanlang
 3️⃣ Biroz sayr qiling
-4️⃣ Maqsadingizni eslang
+4️⃣ Orzuingizni eslang
 5️⃣ O'zingizni mukofotlang
 
 Bugun kichik qadam ham yetarli. Do'stingizga yuboring 📩

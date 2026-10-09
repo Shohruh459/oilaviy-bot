@@ -146,7 +146,7 @@
    "top": 1000,
    "xfrac": 0.55,
    "voice": "voice/s4.wav",
-   "say": "To'rtinchi: maqsadingizni eslang.",
+   "say": "To'rtinchi: orzuingizni eslang.",
    "lines": [
     [
      "4-usul",
@@ -154,7 +154,7 @@
      "0xFFD54F"
     ],
     [
-     "Maqsadingizni",
+     "Orzuingizni",
      62,
      "white"
     ],

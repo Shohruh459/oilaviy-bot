@@ -81,7 +81,7 @@
    "top": 1000,
    "xfrac": 0.4,
    "voice": "voice/s2.wav",
-   "say": "Ikkinchi: o'zingizni savollar bilan tekshiring.",
+   "say": "Ikkinchi: o'zingizni savollar bilan sinang.",
    "lines": [
     [
      "2-usul",
@@ -151,7 +151,7 @@
    "top": 1000,
    "xfrac": 0.5,
    "voice": "voice/s4.wav",
-   "say": "To'rtinchi: qiyin mavzudan boshlang.",
+   "say": "To'rtinchi: avval qiyin mavzuni o'rganing.",
    "lines": [
     [
      "4-usul",

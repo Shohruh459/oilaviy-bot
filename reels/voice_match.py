@@ -54,23 +54,37 @@ def _postprocess(src, dst, ref_rms=None):
     sf.write(dst, y, sr)
 
 
-def synth_matched(text, out_path, ref_wav, ref_text=None, seeds=range(1, 17), speaking_rate=1.1, verbose=True, **tts_kwargs):
+def synth_matched(text, out_path, ref_wav, ref_text=None, seeds=range(1, 17), speaking_rate=1.1, verbose=True,
+                  use_asr=False, **tts_kwargs):
     """Bir necha seed'dan sifati (shimmer) va ohangi namunaga eng yaqinini tanlaydi. Siljitish YO'Q.
-    Qaytaradi: (seed, masofa, yakuniy xususiyatlar)."""
+    use_asr=True: har nomzod ASR (hear.py) bilan tekshiriladi va aniqroq o'qilgani (kam CER) afzal ko'riladi,
+    lekin namuna ovozdan chiqib ketmaydi (shimmer <= namuna+1.2, ohang farqi <= 2 yarim ton).
+    Qaytaradi: (seed, ball, yakuniy xususiyatlar; use_asr bo'lsa fin['cer'] ham)."""
     ref = features(ref_wav)
     best = None
     tmp = tempfile.mkdtemp()
+    if use_asr:
+        import hear
     for sd in seeds:
         p = os.path.join(tmp, f's{sd}.wav')
         tts_uz.synth(text, p, speaking_rate=speaking_rate, seed=sd, **tts_kwargs)
         f = features(p)
         d = distance(f, ref)
+        cer = None
+        score = d
+        if use_asr:
+            hyp, _, _ = hear.transcribe(p)
+            cer = hear.cer(hear.norm(text), hear.norm(hyp))
+            score = d + 10 * cer
+            if f['shimmer'] > ref['shimmer'] + 1.2 or abs(f['f0'] - ref['f0']) > 2.0:
+                score += 5
         if verbose:
-            print(f'    seed {sd:>3}: masofa {d:.2f} shimmer {f["shimmer"]:.1f}')
-        if best is None or d < best[0]:
-            best = (d, sd, p)
-    d, sd, p = best
+            print(f'    seed {sd:>3}: masofa {d:.2f} shimmer {f["shimmer"]:.1f}' + (f' CER {cer*100:.0f}%' if cer is not None else ''))
+        if best is None or score < best[0]:
+            best = (score, sd, p, cer)
+    score, sd, p, cer = best
     _postprocess(p, out_path, ref['rms'])
     final = features(out_path)
+    final['cer'] = cer
     shutil.rmtree(tmp, ignore_errors=True)
-    return sd, d, final
+    return sd, score, final

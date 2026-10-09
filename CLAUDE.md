@@ -112,6 +112,13 @@ Yig'ishda musiqa boshidan olinadi, 1s ichida paydo bo'ladi, oxirgi 3s da so'nadi
 - ASR bo'yicha (A + pauza): unlilar saqlanishi yaxshilandi (1 va 2-usul CER 14%), lekin 3, 4, 5-usul 26–32%, kirish va CTA 43–45%: asosiy Meta modeli harflarni yutishi saqlanib qoladi (bu uning chegarasi, Azure bo'lmasa yaxshilab bo'lmaydi). Gaplar orasidagi ovoz egasi o'xshashligi 0.93–0.99.
 - Sinov/yig'ish: `make_voice.py` va `build_reel.py` ni spetsifikatsiya bilan ishga tushirish; tugash kutish uchun `pgrep -f` ishlatmang (o'zini topadi): log faylga `FINISHED` yozdirib, `grep -q` bilan kuting.
 
+### Ovozni yaxshilash jarayoni (rasmiy videolar uchun qo'llangan)
+- Birinchi o'tish: `make_voice.py` (shimmer/ohang bo'yicha seed). Ikkinchi o'tish: `reels/improve_voice.py spec.json 0.40 --skip cta`: ASR bo'yicha CER >= 40% gaplar uchun 24 seed sinab, ASR-yordamli (kam CER + ovoz oynasi) tanlash; CTA matni barcha videolarda bir xil (CER 43%, o'zgartirilmadi).
+- Qiyin so'zlarni ovozda soddaroq so'z bilan almashtirish ASR'ni 50–80% dan 17–32% gacha tushiradi (masalan "maqsadingizni" -> "orzuingizni", "tekshiring" -> "sinang"). Ekrandagi matn ovozdan boshqacha bo'lishi mumkin, lekin ma'no mos tushsin.
+- Ovoz egasi chetga chiqqan gap (x-vector o'rtacha < 0.85) uchun: 30 seed sinab, boshqa gaplar markaziga o'xshashlik va CER bo'yicha tanlash (6-video 2-usul misolida 0.82 -> 0.94).
+- Audio: `alimiter=limit=0.89:level=false` (level=false shart; aks holda cho'qqi 0 dB ga ko'tariladi). O'rtacha ovoz balandligi ~ -18 dB, cho'qqi ~ -1.4 dB; eski videolarda audio keyin `volume=-1.5dB` bilan tuzatilgan.
+- Yakuniy ASR (8 video): o'rtacha CER 25–34% (tabiiy nutqda 6%), eng yomon gap CER ~43% (CTA). Bu asosiy Meta modelining chegarasi.
+
 ### Talaffuz tuzatishlari
 (hozircha bo'sh; foydalanuvchi talaffuz xatolarini aytgach to'ldiriladi)
 

@@ -16,7 +16,7 @@
    "top": 1060,
    "xfrac": 0.7,
    "voice": "voice/s0.wav",
-   "say": "Vaqt yetmayaptimi? Balki usul boshqachadir. Mana, besh ta maslahat.",
+   "say": "Vaqt yetmayaptimi? Mana, besh ta maslahat.",
    "lines": [
     [
      "Vaqt yetmayaptimi?",
@@ -81,7 +81,7 @@
    "top": 1000,
    "xfrac": 0.5,
    "voice": "voice/s2.wav",
-   "say": "Ikkinchi: eng muhim uchta ishni tanlang.",
+   "say": "Ikkinchi: uchta muhim ishni tanlang.",
    "lines": [
     [
      "2-usul",
@@ -151,7 +151,7 @@
    "top": 1000,
    "xfrac": 0.7,
    "voice": "voice/s4.wav",
-   "say": "To'rtinchi: kichik bo'sh vaqtlardan foydalaning.",
+   "say": "To'rtinchi: bo'sh vaqtdan foydalaning.",
    "lines": [
     [
      "4-usul",
