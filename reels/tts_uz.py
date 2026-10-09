@@ -57,7 +57,7 @@ def lat2cyr(text: str) -> str:
 
 _model = _tok = None
 _DEFAULTS = {}
-PAUSE = {',': 0.22, ':': 0.30, ';': 0.30, '.': 0.40, '?': 0.45, '!': 0.40}
+PAUSE = {',': 0.22, ':': 0.28, ';': 0.28, '.': 0.38, '?': 0.42, '!': 0.38}
 
 
 def _load():
@@ -69,6 +69,17 @@ def _load():
         _DEFAULTS.update(ns=_model.noise_scale, nsd=_model.noise_scale_duration)
 
 
+def _trim_silence(w, sr, thr=0.03, keep=0.03):
+    """Bo'lak boshi va oxiridagi jimlikni kesadi (chekkada `keep` soniya qoldiradi)."""
+    import numpy as np
+    a = np.abs(w)
+    idx = np.where(a > thr * a.max())[0]
+    if len(idx) == 0:
+        return w
+    k = int(keep * sr)
+    return w[max(0, idx[0] - k): idx[-1] + k]
+
+
 def _clause_wave(cyr, seed):
     import torch
     ids = _tok(cyr, return_tensors='pt')
@@ -78,7 +89,7 @@ def _clause_wave(cyr, seed):
 
 
 def synth(text: str, path: str, speaking_rate: float = 1.0, seed: int = 555,
-          noise_scale=None, noise_scale_duration=None, pauses: bool = True, chunk_words=None, chunk_pause=0.06, lowpass_hz=None):
+          noise_scale=None, noise_scale_duration=None, pauses: bool = True, chunk_words=None, chunk_pause=0.06, lowpass_hz=None, split_on=',.?!:;'):
     """Matnni ovozga aylantiradi.
     Model vocab'ida tinish belgilari yo'q (vergul, so'roq, nuqta, ikki nuqta tashlab yuboriladi), shuning uchun
     pauses=True bo'lsa matn tinish belgilari bo'yicha bo'laklarga bo'linadi, har bo'lak alohida o'qiladi va
@@ -91,12 +102,13 @@ def synth(text: str, path: str, speaking_rate: float = 1.0, seed: int = 555,
     _model.noise_scale_duration = _DEFAULTS['nsd'] if noise_scale_duration is None else noise_scale_duration
     sr = _model.config.sampling_rate
     if pauses:
-        parts = [p for p in re.split(r'([,.?!:;]+)', text) if p.strip()]
+        marks = re.escape(split_on)
+        parts = [p for p in re.split(rf'([{marks}]+)', text) if p.strip()]
     else:
         parts = [text]
     pieces, last_clause = [], None
     for p in parts:
-        if re.fullmatch(r'[,.?!:;]+', p.strip()):
+        if re.fullmatch(rf'[{re.escape(split_on)}]+', p.strip()):
             if last_clause is not None:
                 pieces.append(np.zeros(int(sr * PAUSE.get(p.strip()[0], 0.25)), dtype=np.float32))
             continue
@@ -108,6 +120,7 @@ def synth(text: str, path: str, speaking_rate: float = 1.0, seed: int = 555,
             if not cyr:
                 continue
             w = _clause_wave(cyr, seed)
+            w = _trim_silence(w, sr)  # model bo'lak chetida qoldirgan jimlikni kesish: pauzani aniq boshqarish uchun
             w = w / max(1e-9, float(np.sqrt(np.mean(w ** 2)))) * 0.1   # har bo'lak bir xil ovoz balandligida
             if si > 0:
                 pieces.append(np.zeros(int(sr * chunk_pause), dtype=np.float32))

@@ -54,7 +54,7 @@ def _postprocess(src, dst, ref_rms=None):
     sf.write(dst, y, sr)
 
 
-def synth_matched(text, out_path, ref_wav, ref_text=None, seeds=range(1, 17), speaking_rate=1.1, verbose=True):
+def synth_matched(text, out_path, ref_wav, ref_text=None, seeds=range(1, 17), speaking_rate=1.1, verbose=True, **tts_kwargs):
     """Bir necha seed'dan sifati (shimmer) va ohangi namunaga eng yaqinini tanlaydi. Siljitish YO'Q.
     Qaytaradi: (seed, masofa, yakuniy xususiyatlar)."""
     ref = features(ref_wav)
@@ -62,7 +62,7 @@ def synth_matched(text, out_path, ref_wav, ref_text=None, seeds=range(1, 17), sp
     tmp = tempfile.mkdtemp()
     for sd in seeds:
         p = os.path.join(tmp, f's{sd}.wav')
-        tts_uz.synth(text, p, speaking_rate=speaking_rate, seed=sd)
+        tts_uz.synth(text, p, speaking_rate=speaking_rate, seed=sd, **tts_kwargs)
         f = features(p)
         d = distance(f, ref)
         if verbose:

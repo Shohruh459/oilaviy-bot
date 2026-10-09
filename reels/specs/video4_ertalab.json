@@ -219,7 +219,10 @@
   ],
   "dur": 5.5,
   "voice": "voice/cta.wav",
-  "say": "Saqlab qo'ying, do'stingizga yuboring va obuna bo'ling."
+  "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
  },
- "speaking_rate": 1.1
+ "speaking_rate": 1.1,
+ "tts": {
+  "split_on": ":.?!"
+ }
 }
