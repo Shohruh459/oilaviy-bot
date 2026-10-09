@@ -1,42 +1,52 @@
 {
- "out": "yuksalish_diqqat.mp4",
- "music": "/home/user/oilaviy-bot/reels/music/2_fokus_lofi_study.mp3",
+ "speaking_rate": 1.1,
+ "voice_delay": 0.3,
+ "music_gain": 0.6,
+ "voice_gain": 1.5,
  "music_start": 0,
+ "tts": {
+  "split_on": ":.?!"
+ },
+ "out": "yuksalish_vaqt.mp4",
+ "music": "/home/user/oilaviy-bot/reels/music/5_tezkor_business_corporate.mp3",
  "scenes": [
   {
-   "clip": "anime_hook",
+   "clip": "hook_2",
    "dur": 4.5,
-   "xfrac": 0.3,
    "top": 1060,
+   "xfrac": 0.7,
+   "voice": "voice/s0.wav",
+   "say": "Vaqt yetmayaptimi? Balki usul boshqachadir. Mana, besh ta maslahat.",
    "lines": [
     [
-     "Kitob ochasiz-u,",
-     80,
+     "Vaqt yetmayaptimi?",
+     82,
      "white"
     ],
     [
-     "fikr boshqa yoqdami?",
-     72,
+     "Balki usul boshqachadir",
+     58,
      "white"
     ],
     [
-     "Diqqatni jamlashga yordam",
+     "Vaqtni tejaydigan",
      46,
      "0xFFD54F"
     ],
     [
-     "beradigan 5 ta usul ↓",
+     "5 ta usul ↓",
      46,
      "0xFFD54F"
     ]
-   ],
-   "voice": "voice/s0.wav",
-   "say": "Kitob ochsangiz, fikringiz boshqa yoqqa ketadimi? Mana, besh ta usul."
+   ]
   },
   {
-   "clip": "t1_1",
+   "clip": "t1_3",
    "dur": 4.5,
    "top": 1000,
+   "xfrac": 0.6,
+   "voice": "voice/s1.wav",
+   "say": "Birinchi: haftalik reja tuzing.",
    "lines": [
     [
      "1-usul",
@@ -44,34 +54,34 @@
      "0xFFD54F"
     ],
     [
-     "Telefonni boshqa",
+     "Haftalik reja",
      62,
      "white"
     ],
     [
-     "xonaga qo'ying",
+     "tuzing",
      62,
      "white"
     ],
     [
-     "Ko'zdan uzoq bo'lsa,",
+     "Yetti kunni oldindan",
      44,
      "0xE6E6E6"
     ],
     [
-     "chalg'ish kamayadi",
+     "ko'rib chiqing",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s1.wav",
-   "say": "Birinchi: telefonni boshqa xonaga qo'ying."
+   ]
   },
   {
-   "clip": "t2_0",
+   "clip": "t2_1",
    "dur": 4.5,
-   "xfrac": 0.45,
    "top": 1000,
+   "xfrac": 0.5,
+   "voice": "voice/s2.wav",
+   "say": "Ikkinchi: eng muhim uchta ishni tanlang.",
    "lines": [
     [
      "2-usul",
@@ -79,33 +89,34 @@
      "0xFFD54F"
     ],
     [
-     "25 daqiqa o'qing,",
+     "Eng muhim",
      62,
      "white"
     ],
     [
-     "5 daqiqa dam oling",
+     "uchta ishni tanlang",
      62,
      "white"
     ],
     [
-     "Qisqa bosqichlar diqqatni",
+     "Har kuni uchta asosiy",
      44,
      "0xE6E6E6"
     ],
     [
-     "saqlashga yordam beradi",
+     "vazifa yetarli",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s2.wav",
-   "say": "Ikkinchi: yigirma besh daqiqa o'qing, besh daqiqa dam oling."
+   ]
   },
   {
-   "clip": "t5_2",
+   "clip": "t3_1",
    "dur": 4.5,
-   "top": 1030,
+   "top": 1000,
+   "xfrac": 0.4,
+   "voice": "voice/s3.wav",
+   "say": "Uchinchi: vaqt o'g'rilarini toping.",
    "lines": [
     [
      "3-usul",
@@ -113,28 +124,34 @@
      "0xFFD54F"
     ],
     [
-     "Stolingizni tozalang",
+     "Vaqt o'g'rilarini",
      62,
      "white"
     ],
     [
-     "Faqat kerakli narsa",
+     "toping",
+     62,
+     "white"
+    ],
+    [
+     "Qaysi ishlar vaqtni",
      44,
      "0xE6E6E6"
     ],
     [
-     "ko'z oldingizda qolsin",
+     "behuda oladi?",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s3.wav",
-   "say": "Uchinchi: stolingizni tozalang."
+   ]
   },
   {
-   "clip": "t5_3",
+   "clip": "t4_2",
    "dur": 4.5,
    "top": 1000,
+   "xfrac": 0.7,
+   "voice": "voice/s4.wav",
+   "say": "To'rtinchi: kichik bo'sh vaqtlardan foydalaning.",
    "lines": [
     [
      "4-usul",
@@ -142,34 +159,34 @@
      "0xFFD54F"
     ],
     [
-     "Bir vaqtda",
+     "Kichik bo'sh",
      62,
      "white"
     ],
     [
-     "bitta ish qiling",
+     "vaqtlardan foydalaning",
      62,
      "white"
     ],
     [
-     "Bir vazifani tugatib,",
+     "Navbatda yoki yo'lda",
      44,
      "0xE6E6E6"
     ],
     [
-     "keyingisiga o'ting",
+     "bir sahifa o'qing",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s4.wav",
-   "say": "To'rtinchi: bir vaqtda bitta ish qiling."
+   ]
   },
   {
-   "clip": "t5_1",
+   "clip": "t5_3",
    "dur": 4.5,
-   "xfrac": 0.6,
    "top": 1000,
+   "xfrac": 0.65,
+   "voice": "voice/s5.wav",
+   "say": "Beshinchi: dam olishni ham rejalang.",
    "lines": [
     [
      "5-usul",
@@ -177,28 +194,26 @@
      "0xFFD54F"
     ],
     [
-     "Maqsadni oldindan",
+     "Dam olishni",
      62,
      "white"
     ],
     [
-     "belgilab qo'ying",
+     "ham rejalang",
      62,
      "white"
     ],
     [
-     "Bugun nimani o'rganasiz?",
+     "Dam olgan odam",
      44,
      "0xE6E6E6"
     ],
     [
-     "Yozib qo'ying",
+     "samaraliroq ishlaydi",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s5.wav",
-   "say": "Beshinchi: maqsadni oldindan belgilab qo'ying."
+   ]
   }
  ],
  "cta": {
@@ -211,12 +226,5 @@
   "dur": 5.5,
   "voice": "voice/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
- },
- "speaking_rate": 1.1,
- "voice_delay": 0.3,
- "music_gain": 0.6,
- "voice_gain": 1.5,
- "tts": {
-  "split_on": ":.?!"
  }
 }

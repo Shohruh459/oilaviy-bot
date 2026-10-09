@@ -1,43 +1,50 @@
 {
- "out": "yuksalish_kitob.mp4",
- "music": "/home/user/oilaviy-bot/reels/music/3_ertalab_sunny_morning_walk.mp3",
+ "speaking_rate": 1.1,
+ "voice_delay": 0.3,
+ "music_gain": 0.6,
+ "voice_gain": 1.5,
+ "tts": {
+  "split_on": ":.?!"
+ },
+ "out": "yuksalish_5_usul.mp4",
+ "music": "/home/user/oilaviy-bot/reels/music/6_vlog_echoes_of_lumen.mp3",
  "music_start": 0,
  "scenes": [
   {
-   "clip": "hook_3",
+   "clip": "big_hook_2",
    "dur": 4.5,
-   "xfrac": 0.47,
    "top": 1060,
+   "voice": "voice/s0.wav",
+   "say": "Ko'p o'qiysiz, lekin esda qolmayaptimi? Mana, besh ta foydali usul.",
    "lines": [
     [
-     "Yilda 12 ta kitob",
-     80,
+     "Ko'p o'qiysiz-u,",
+     82,
      "white"
     ],
     [
-     "o'qish qiyinmi?",
-     80,
+     "esda qolmayaptimi?",
+     82,
      "white"
     ],
     [
-     "Kitobni odatga aylantirishning",
+     "Ko'proq samara beradigan",
      46,
      "0xFFD54F"
     ],
     [
-     "5 ta oson yo'li ↓",
+     "5 ta usul ↓",
      46,
      "0xFFD54F"
     ]
-   ],
-   "voice": "voice/s0.wav",
-   "say": "Yilda o'n ikkita kitob o'qish qiyinmi? Mana, besh ta oson yo'li."
+   ]
   },
   {
-   "clip": "t2_3",
+   "clip": "big_hook_3",
    "dur": 4.5,
-   "xfrac": 0.3,
    "top": 1000,
+   "voice": "voice/s1.wav",
+   "say": "Birinchi: kichik qadamlardan boshlang.",
    "lines": [
     [
      "1-usul",
@@ -45,7 +52,7 @@
      "0xFFD54F"
     ],
     [
-     "Kuniga 10 bet bilan",
+     "Kichik qadamlardan",
      62,
      "white"
     ],
@@ -55,24 +62,23 @@
      "white"
     ],
     [
-     "Kichik maqsad odatni",
+     "Kuniga 20 daqiqa ham",
      44,
      "0xE6E6E6"
     ],
     [
-     "osonroq o'rnatadi",
+     "katta natija beradi",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s1.wav",
-   "say": "Birinchi: kuniga o'n bet bilan boshlang."
+   ]
   },
   {
-   "clip": "t2_2",
+   "clip": "big_t2_3",
    "dur": 4.5,
-   "xfrac": 0.3,
    "top": 1000,
+   "voice": "voice/s2.wav",
+   "say": "Ikkinchi: o'qiganingizni yozib boring.",
    "lines": [
     [
      "2-usul",
@@ -80,34 +86,33 @@
      "0xFFD54F"
     ],
     [
-     "Kitobni ko'z oldingizga",
+     "O'qiganingizni o'z",
      62,
      "white"
     ],
     [
-     "qo'yib qo'ying",
+     "so'zingiz bilan yozing",
      62,
      "white"
     ],
     [
-     "Ko'rinib turgan narsa",
+     "Mavzu shunda yaxshiroq",
      44,
      "0xE6E6E6"
     ],
     [
-     "tez-tez esga tushadi",
+     "esda qoladi",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s2.wav",
-   "say": "Ikkinchi: kitobni ko'z oldingizga qo'yib qo'ying."
+   ]
   },
   {
-   "clip": "t1_1",
+   "clip": "big_t3_3",
    "dur": 4.5,
-   "xfrac": 0.35,
    "top": 1000,
+   "voice": "voice/s3.wav",
+   "say": "Uchinchi: takrorlashni oldindan rejalang.",
    "lines": [
     [
      "3-usul",
@@ -115,34 +120,34 @@
      "0xFFD54F"
     ],
     [
-     "O'qish vaqtini",
+     "Takrorlashni",
      62,
      "white"
     ],
     [
-     "oldindan belgilang",
+     "oldindan rejalang",
      62,
      "white"
     ],
     [
-     "Masalan, uyqudan oldin",
+     "Ertasi kuni, 3 kundan so'ng",
      44,
      "0xE6E6E6"
     ],
     [
-     "yoki ertalabki choy bilan",
+     "va bir haftadan keyin",
      44,
      "0xE6E6E6"
     ]
    ],
-   "voice": "voice/s3.wav",
-   "say": "Uchinchi: o'qish vaqtini oldindan belgilang."
+   "xfrac": 0.28
   },
   {
-   "clip": "hook_0",
+   "clip": "big_t4_3",
    "dur": 4.5,
-   "xfrac": 0.35,
    "top": 1000,
+   "voice": "voice/s4.wav",
+   "say": "To'rtinchi: o'qish paytida telefonni chetga qo'ying.",
    "lines": [
     [
      "4-usul",
@@ -150,34 +155,34 @@
      "0xFFD54F"
     ],
     [
-     "Qiziqarli kitobdan",
+     "O'qish vaqtida",
      62,
      "white"
     ],
     [
-     "boshlang",
+     "telefonni chetga qo'ying",
      62,
      "white"
     ],
     [
-     "Zerikmasangiz, davom",
+     "Diqqat jamlansa,",
      44,
      "0xE6E6E6"
     ],
     [
-     "ettirish osonroq bo'ladi",
+     "tezroq o'rganasiz",
      44,
      "0xE6E6E6"
     ]
    ],
-   "voice": "voice/s4.wav",
-   "say": "To'rtinchi: qiziqarli kitobdan boshlang."
+   "xfrac": 0.92
   },
   {
-   "clip": "t4_3",
+   "clip": "big_t5_3",
    "dur": 4.5,
-   "xfrac": 0.55,
    "top": 1000,
+   "voice": "voice/s5.wav",
+   "say": "Beshinchi: bilganingizni boshqalarga o'rgating.",
    "lines": [
     [
      "5-usul",
@@ -185,46 +190,37 @@
      "0xFFD54F"
     ],
     [
-     "O'qiganingiz haqida",
+     "Bilganingizni",
      62,
      "white"
     ],
     [
-     "suhbatlashing",
+     "boshqalarga o'rgating",
      62,
      "white"
     ],
     [
-     "Bilganingizni aytib berish",
+     "Mustahkamlashning eng",
      44,
      "0xE6E6E6"
     ],
     [
-     "kitobni yaxshiroq eslatadi",
+     "yaxshi usullaridan biri",
      44,
      "0xE6E6E6"
     ]
-   ],
-   "voice": "voice/s5.wav",
-   "say": "Beshinchi: o'qiganingiz haqida suhbatlashing."
+   ]
   }
  ],
  "cta": {
   "bg": "cta_bg",
   "order": [
-   "send",
    "save",
+   "send",
    "follow"
   ],
   "dur": 5.5,
   "voice": "voice/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
- },
- "speaking_rate": 1.1,
- "voice_delay": 0.3,
- "music_gain": 0.6,
- "voice_gain": 1.5,
- "tts": {
-  "split_on": ":.?!"
  }
 }

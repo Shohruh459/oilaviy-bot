@@ -1,0 +1,225 @@
+{
+ "speaking_rate": 1.1,
+ "voice_delay": 0.3,
+ "music_gain": 0.6,
+ "voice_gain": 1.5,
+ "music_start": 0,
+ "tts": {
+  "split_on": ":.?!"
+ },
+ "out": "yuksalish_charchoq.mp4",
+ "music": "/home/user/oilaviy-bot/reels/music/4_sokin_relaxing.mp3",
+ "scenes": [
+  {
+   "clip": "hook_1",
+   "dur": 4.5,
+   "top": 1060,
+   "xfrac": 0.5,
+   "voice": "voice/s0.wav",
+   "say": "Charchadingizmi? Mana, davom etishga yordam beradigan besh ta usul.",
+   "lines": [
+    [
+     "Charchadingizmi?",
+     84,
+     "white"
+    ],
+    [
+     "Davom etishga",
+     46,
+     "0xFFD54F"
+    ],
+    [
+     "yordam beradigan 5 ta usul ↓",
+     46,
+     "0xFFD54F"
+    ]
+   ]
+  },
+  {
+   "clip": "t1_3",
+   "dur": 4.5,
+   "top": 1000,
+   "xfrac": 0.5,
+   "voice": "voice/s1.wav",
+   "say": "Birinchi: besh daqiqa qoidasi.",
+   "lines": [
+    [
+     "1-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "Besh daqiqa",
+     62,
+     "white"
+    ],
+    [
+     "qoidasi",
+     62,
+     "white"
+    ],
+    [
+     "Faqat besh daqiqa",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "boshlab ko'ring",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  },
+  {
+   "clip": "t2_2",
+   "dur": 4.5,
+   "top": 1000,
+   "xfrac": 0.45,
+   "voice": "voice/s2.wav",
+   "say": "Ikkinchi: yengilroq mavzuni tanlang.",
+   "lines": [
+    [
+     "2-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "Yengilroq mavzuni",
+     62,
+     "white"
+    ],
+    [
+     "tanlang",
+     62,
+     "white"
+    ],
+    [
+     "Og'ir kunda yengil",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "kitob ham foyda beradi",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  },
+  {
+   "clip": "t3_1",
+   "dur": 4.5,
+   "top": 1000,
+   "xfrac": 0.5,
+   "voice": "voice/s3.wav",
+   "say": "Uchinchi: biroz sayr qiling.",
+   "lines": [
+    [
+     "3-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "Biroz",
+     62,
+     "white"
+    ],
+    [
+     "sayr qiling",
+     62,
+     "white"
+    ],
+    [
+     "Toza havo kayfiyatni",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "ko'tarishi mumkin",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  },
+  {
+   "clip": "t4_3",
+   "dur": 4.5,
+   "top": 1000,
+   "xfrac": 0.55,
+   "voice": "voice/s4.wav",
+   "say": "To'rtinchi: maqsadingizni eslang.",
+   "lines": [
+    [
+     "4-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "Maqsadingizni",
+     62,
+     "white"
+    ],
+    [
+     "eslang",
+     62,
+     "white"
+    ],
+    [
+     "Nega boshlaganingizni",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "o'ylab ko'ring",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  },
+  {
+   "clip": "t5_3",
+   "dur": 4.5,
+   "top": 1000,
+   "xfrac": 0.8,
+   "voice": "voice/s5.wav",
+   "say": "Beshinchi: o'zingizni mukofotlang.",
+   "lines": [
+    [
+     "5-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "O'zingizni",
+     62,
+     "white"
+    ],
+    [
+     "mukofotlang",
+     62,
+     "white"
+    ],
+    [
+     "Kichik yutuq ham",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "e'tiborga loyiq",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  }
+ ],
+ "cta": {
+  "bg": "cta_bg",
+  "order": [
+   "send",
+   "follow",
+   "save"
+  ],
+  "dur": 5.5,
+  "voice": "voice/cta.wav",
+  "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
+ }
+}
