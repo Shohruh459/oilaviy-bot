@@ -178,7 +178,7 @@ else:
     parts.append("[vo]asplit[vk][vm]")
     parts.append("[m][vk]sidechaincompress=threshold=0.015:ratio=12:attack=30:release=700[md]")
     parts.append("[md][vm]amix=inputs=2:normalize=0:duration=longest[mix]")
-    parts.append(f"[mix]atrim=0:{total},afade=t=in:d=1,afade=t=out:st={total - 3}:d=3,alimiter=limit=0.95,aformat=channel_layouts=stereo[a]")
+    parts.append(f"[mix]atrim=0:{total},afade=t=in:d=1,afade=t=out:st={total - 3}:d=3,alimiter=limit=0.89,aformat=channel_layouts=stereo[a]")
     cmd += ['-filter_complex', ";".join(parts), '-map', '0:v', '-map', '[a]', '-t', str(total)]
 cmd += ['-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', spec['out']]
 subprocess.run(cmd, check=True)

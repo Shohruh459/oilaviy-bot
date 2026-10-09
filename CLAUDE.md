@@ -21,14 +21,14 @@ Birinchi video **09.10.2026 (juma)** da yuklanadi, qolganlari har kuni ketma-ket
 
 | # | Sana | Mavzu | Holat |
 |---|---|---|---|
-| 1 | 09.10.2026 (juma) | Ilm olishning 5 ta samarali usuli | tayyor: `yuksalish_5_usul.mp4` |
-| 2 | 10.10.2026 (shanba) | Diqqatni jamlashning 5 yo'li | tayyor: `yuksalish_diqqat.mp4` (2-shablon musiqa) |
-| 3 | 11.10.2026 (yakshanba) | Kitob o'qishni odatga aylantirish | tayyor: `yuksalish_kitob.mp4` (3-shablon musiqa) |
-| 4 | 12.10.2026 (dushanba) | Ertalabki 5 ta odat (ilm uchun) | TEST (ovozli, MMS-TTS): `yuksalish_ertalab.mp4`, foydalanuvchi ovoz sifatini tasdiqlaydi |
-| 5 | 13.10.2026 (seshanba) | Imtihonga tayyorgarlik: 5 ta maslahat | kutilmoqda |
-| 6 | 14.10.2026 (chorshanba) | Yangi til o'rganish: 5 ta sodda usul | kutilmoqda |
-| 7 | 15.10.2026 (payshanba) | Vaqtni to'g'ri taqsimlash | kutilmoqda |
-| 8 | 16.10.2026 (juma) | Charchaganda ham o'qishni davom ettirish | kutilmoqda |
+| 1 | 09.10.2026 (juma) | Ilm olishning 5 ta samarali usuli | OVOZLI tayyor: `yuksalish_5_usul.mp4` |
+| 2 | 10.10.2026 (shanba) | Diqqatni jamlashning 5 yo'li | OVOZLI tayyor: `yuksalish_diqqat.mp4` |
+| 3 | 11.10.2026 (yakshanba) | Kitob o'qishni odatga aylantirish | OVOZLI tayyor: `yuksalish_kitob.mp4` |
+| 4 | 12.10.2026 (dushanba) | Ertalabki 5 ta odat (ilm uchun) | OVOZLI tayyor: `yuksalish_ertalab.mp4` |
+| 5 | 13.10.2026 (seshanba) | Imtihonga tayyorgarlik: 5 ta maslahat | OVOZLI tayyor: `yuksalish_imtihon.mp4` |
+| 6 | 14.10.2026 (chorshanba) | Yangi til o'rganish: 5 ta sodda usul | OVOZLI tayyor: `yuksalish_til.mp4` |
+| 7 | 15.10.2026 (payshanba) | Vaqtni to'g'ri taqsimlash | OVOZLI tayyor: `yuksalish_vaqt.mp4` |
+| 8 | 16.10.2026 (juma) | Charchaganda ham o'qishni davom ettirish | OVOZLI tayyor: `yuksalish_charchoq.mp4` |
 
 Eslatma: `yuksalish_ilm.mp4` va `yuksalish_ilm_v2.mp4` — oyat/hadis bilan eski tajriba variantlari, jadvalga kirmaydi.
 
@@ -36,7 +36,7 @@ Eslatma: `yuksalish_ilm.mp4` va `yuksalish_ilm_v2.mp4` — oyat/hadis bilan eski
 
 - Auditoriya: 15–40 yosh. **Faqat maslahatlar** formati.
 - Ohang: yumshoq tavsiya ("shu usullar ko'proq samara beradi"), buyruq ohangi emas.
-- Format: 1080×1920 (9:16), 25–35 soniya, o'zbek lotin, ekrandagi matn. Ovoz (TTS) hozircha faqat TEST rejimida (pastdagi "Ovoz (TTS)" bo'limi); foydalanuvchi sifatni tasdiqlamaguncha jadvaldagi videolar ovozsiz (faqat musiqa) tayyorlanadi.
+- Format: 1080×1920 (9:16), 25–35 soniya, o'zbek lotin, ekrandagi matn. Rasmiy videolar OVOZLI (TTS, A varianti, pastdagi "Ovoz (TTS)" bo'limi), foydalanuvchi tasdiqlagan. Davomiylik ovozga qarab ~35–40 soniya. Tayyor izoh/sana/hashtag/musiqa jadvali: `reels/captions.md`.
 - Tuzilma: hook (3–4s) → 5 ta maslahat (har biri ~5s) → CTA (5–6s).
 - Matn pastki-markazda yarim shaffof qora panelda, sarlavha oq, "N-usul" va manba/urg'u oltin (`0xFFD54F`). Instagram interfeysi yopadigan pastki ~250px va yuqori qismni bo'sh qoldiring.
 - Oxirgi CTA animatsiyali piktogrammalar bilan, videoga qarab tartibi: maslahat ro'yxati → **Saqlash** birinchi; hikoya/ilhom → **Ulashish** birinchi; doim **Obuna** ham bor. Piktogrammalar Pillow bilan chiziladi (sakrab chiqish + yengil pulsatsiya).

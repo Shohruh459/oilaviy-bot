@@ -114,7 +114,7 @@
    "clip": "t3_3",
    "dur": 4.5,
    "top": 1000,
-   "xfrac": 0.75,
+   "xfrac": 0.35,
    "voice": "voice/s3.wav",
    "say": "Uchinchi: yetarli uxlashni unutmang.",
    "lines": [
