@@ -1,11 +1,7 @@
 {
- "speaking_rate": 1.1,
  "voice_delay": 0.3,
  "music_gain": 0.6,
  "voice_gain": 1.5,
- "tts": {
-  "split_on": ":.?!"
- },
  "out": "yuksalish_5_usul.mp4",
  "music": "/home/user/oilaviy-bot/reels/music/6_vlog_echoes_of_lumen.mp3",
  "music_start": 0,
@@ -14,7 +10,7 @@
    "clip": "big_hook_2",
    "dur": 4.5,
    "top": 1060,
-   "voice": "voice/s0.wav",
+   "voice": "voice_cb/s0.wav",
    "say": "Ko'p o'qiysiz, lekin esda qolmayaptimi? Mana, besh ta foydali usul.",
    "lines": [
     [
@@ -43,7 +39,7 @@
    "clip": "big_hook_3",
    "dur": 4.5,
    "top": 1000,
-   "voice": "voice/s1.wav",
+   "voice": "voice_cb/s1.wav",
    "say": "Birinchi: kichik qadamlardan boshlang.",
    "lines": [
     [
@@ -77,7 +73,7 @@
    "clip": "big_t2_3",
    "dur": 4.5,
    "top": 1000,
-   "voice": "voice/s2.wav",
+   "voice": "voice_cb/s2.wav",
    "say": "Ikkinchi: o'qiganingizni yozib boring.",
    "lines": [
     [
@@ -111,7 +107,7 @@
    "clip": "big_t3_3",
    "dur": 4.5,
    "top": 1000,
-   "voice": "voice/s3.wav",
+   "voice": "voice_cb/s3.wav",
    "say": "Uchinchi: takrorlashni oldindan rejalang.",
    "lines": [
     [
@@ -147,7 +143,7 @@
    "clip": "big_t4_3",
    "dur": 4.5,
    "top": 1000,
-   "voice": "voice/s4.wav",
+   "voice": "voice_cb/s4.wav",
    "say": "To'rtinchi: o'qish paytida telefonni chetga qo'ying.",
    "lines": [
     [
@@ -182,7 +178,7 @@
    "clip": "big_t5_3",
    "dur": 4.5,
    "top": 1000,
-   "voice": "voice/s5.wav",
+   "voice": "voice_cb/s5.wav",
    "say": "Beshinchi: bilganingizni boshqalarga o'rgating.",
    "lines": [
     [
@@ -221,7 +217,8 @@
    "follow"
   ],
   "dur": 5.5,
-  "voice": "voice/cta.wav",
+  "voice": "voice_cb/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
- }
+ },
+ "voice_tail": 0.6
 }

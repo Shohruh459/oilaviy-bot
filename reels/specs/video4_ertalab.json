@@ -10,7 +10,7 @@
    "clip": "hook_3",
    "dur": 4.5,
    "top": 1060,
-   "voice": "voice/s0.wav",
+   "voice": "voice_cb/s0.wav",
    "say": "Ertalabingiz qanday boshlanadi? Besh ta foydali odat.",
    "lines": [
     [
@@ -38,7 +38,7 @@
   {
    "clip": "t1_2",
    "dur": 4.5,
-   "voice": "voice/s1.wav",
+   "voice": "voice_cb/s1.wav",
    "say": "Birinchi: Bismillah deb niyat qiling.",
    "top": 1000,
    "lines": [
@@ -73,7 +73,7 @@
    "clip": "t2_1",
    "dur": 4.5,
    "xfrac": 0.5,
-   "voice": "voice/s2.wav",
+   "voice": "voice_cb/s2.wav",
    "say": "Ikkinchi: bir stakan suv ichib oling.",
    "top": 1000,
    "lines": [
@@ -107,7 +107,7 @@
   {
    "clip": "t3_3",
    "dur": 4.5,
-   "voice": "voice/s3.wav",
+   "voice": "voice_cb/s3.wav",
    "say": "Uchinchi: birinchi o'ttiz daqiqa telefonsiz bo'lsin.",
    "top": 1000,
    "lines": [
@@ -142,7 +142,7 @@
    "clip": "t4_3",
    "dur": 4.5,
    "xfrac": 0.8,
-   "voice": "voice/s4.wav",
+   "voice": "voice_cb/s4.wav",
    "say": "To'rtinchi: o'n daqiqa kitob o'qing.",
    "top": 1000,
    "lines": [
@@ -171,14 +171,13 @@
      44,
      "0xE6E6E6"
     ]
-   ],
-   "seed": 555
+   ]
   },
   {
    "clip": "t5_3",
    "dur": 4.5,
    "xfrac": 0.75,
-   "voice": "voice/s5.wav",
+   "voice": "voice_cb/s5.wav",
    "say": "Beshinchi: bugungi rejani yozib qo'ying.",
    "top": 1000,
    "lines": [
@@ -218,11 +217,8 @@
    "follow"
   ],
   "dur": 5.5,
-  "voice": "voice/cta.wav",
+  "voice": "voice_cb/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
  },
- "speaking_rate": 1.1,
- "tts": {
-  "split_on": ":.?!"
- }
+ "voice_tail": 0.6
 }

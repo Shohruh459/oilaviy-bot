@@ -1,6 +1,6 @@
 """Spetsifikatsiyadagi har bir gap (say) uchun Chatterbox (UAzimov LoRA) bilan bir necha seed variantini yaratadi.
 
-Ishlatish (cbwork papkasida, venv ichida):
+Ishlatish (cbwork papkasida, venv ichida; ixtiyoriy muhit: NOSPLIT=1, ONLY=s2,s3, SEED_START=5):
     python gen_voice_cb.py spec.json namuna.wav chiqish_papkasi [seed_soni=4]
 Chiqish: <papka>/<nom>_s<seed>.wav, nom = s0..s5, cta (24 kHz).
 Matn `:.?!` bo'yicha bo'laklanadi, har bo'lak alohida o'qiladi, chetidagi jimlik kesiladi, orasiga aniq pauza qo'yiladi
@@ -68,9 +68,11 @@ def synth_line(text, seed):
 
 
 items = [(f's{i}', sc) for i, sc in enumerate(spec['scenes'])] + [('cta', spec['cta'])]
+only = set(os.environ['ONLY'].split(',')) if os.environ.get('ONLY') else None
+seed_start = int(os.environ.get('SEED_START', '1'))
 for name, it in items:
-    if not it.get('say'): continue
-    for sd in range(1, nseeds + 1):
+    if not it.get('say') or (only and name not in only): continue
+    for sd in range(seed_start, seed_start + nseeds):
         w = synth_line(it['say'], sd)
         sf.write(f'{outdir}/{name}_s{sd}.wav', w, sr)
         print('SAVED', name, sd, round(len(w) / sr, 2), flush=True)

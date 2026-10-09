@@ -1,12 +1,8 @@
 {
- "speaking_rate": 1.1,
  "voice_delay": 0.3,
  "music_gain": 0.6,
  "voice_gain": 1.5,
  "music_start": 0,
- "tts": {
-  "split_on": ":.?!"
- },
  "out": "yuksalish_imtihon.mp4",
  "music": "/home/user/oilaviy-bot/reels/music/2_fokus_lofi_study.mp3",
  "scenes": [
@@ -15,7 +11,7 @@
    "dur": 4.5,
    "top": 1060,
    "xfrac": 0.5,
-   "voice": "voice/s0.wav",
+   "voice": "voice_cb/s0.wav",
    "say": "Imtihon yaqinlashdimi? Mana, besh ta foydali maslahat.",
    "lines": [
     [
@@ -45,7 +41,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.7,
-   "voice": "voice/s1.wav",
+   "voice": "voice_cb/s1.wav",
    "say": "Birinchi: oldindan reja tuzing.",
    "lines": [
     [
@@ -80,7 +76,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.4,
-   "voice": "voice/s2.wav",
+   "voice": "voice_cb/s2.wav",
    "say": "Ikkinchi: o'zingizni savollar bilan sinang.",
    "lines": [
     [
@@ -115,7 +111,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.35,
-   "voice": "voice/s3.wav",
+   "voice": "voice_cb/s3.wav",
    "say": "Uchinchi: yetarli uxlashni unutmang.",
    "lines": [
     [
@@ -150,7 +146,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.5,
-   "voice": "voice/s4.wav",
+   "voice": "voice_cb/s4.wav",
    "say": "To'rtinchi: avval qiyin mavzuni o'rganing.",
    "lines": [
     [
@@ -185,7 +181,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.5,
-   "voice": "voice/s5.wav",
+   "voice": "voice_cb/s5.wav",
    "say": "Beshinchi: tanaffus qilishni unutmang.",
    "lines": [
     [
@@ -224,7 +220,8 @@
    "follow"
   ],
   "dur": 5.5,
-  "voice": "voice/cta.wav",
+  "voice": "voice_cb/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
- }
+ },
+ "voice_tail": 0.6
 }

@@ -30,7 +30,7 @@
      "0xFFD54F"
     ]
    ],
-   "voice": "voice/s0.wav",
+   "voice": "voice_cb/s0.wav",
    "say": "Kitob ochsangiz, fikringiz boshqa yoqqa ketadimi? Mana, besh ta usul."
   },
   {
@@ -64,7 +64,7 @@
      "0xE6E6E6"
     ]
    ],
-   "voice": "voice/s1.wav",
+   "voice": "voice_cb/s1.wav",
    "say": "Birinchi: telefonni boshqa xonaga qo'ying."
   },
   {
@@ -99,7 +99,7 @@
      "0xE6E6E6"
     ]
    ],
-   "voice": "voice/s2.wav",
+   "voice": "voice_cb/s2.wav",
    "say": "Ikkinchi: yigirma besh daqiqa o'qing, besh daqiqa dam oling."
   },
   {
@@ -128,7 +128,7 @@
      "0xE6E6E6"
     ]
    ],
-   "voice": "voice/s3.wav",
+   "voice": "voice_cb/s3.wav",
    "say": "Uchinchi: stolingizni tozalang."
   },
   {
@@ -162,7 +162,7 @@
      "0xE6E6E6"
     ]
    ],
-   "voice": "voice/s4.wav",
+   "voice": "voice_cb/s4.wav",
    "say": "To'rtinchi: bir vaqtda bitta ish qiling."
   },
   {
@@ -197,7 +197,7 @@
      "0xE6E6E6"
     ]
    ],
-   "voice": "voice/s5.wav",
+   "voice": "voice_cb/s5.wav",
    "say": "Beshinchi: maqsadni oldindan belgilab qo'ying."
   }
  ],
@@ -209,14 +209,11 @@
    "follow"
   ],
   "dur": 5.5,
-  "voice": "voice/cta.wav",
+  "voice": "voice_cb/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
  },
- "speaking_rate": 1.1,
  "voice_delay": 0.3,
  "music_gain": 0.6,
  "voice_gain": 1.5,
- "tts": {
-  "split_on": ":.?!"
- }
+ "voice_tail": 0.6
 }

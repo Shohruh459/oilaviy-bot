@@ -31,11 +31,16 @@ for name, it in items:
 target_f0 = float(np.median([r['f0'] for rows in cands.values() for r in rows]))
 print(f'maqsad ohang: {target_f0:.1f} yarim ton')
 chosen = {}
+report_path = os.path.join(os.path.dirname(os.path.abspath(new_spec)), '_sel_report.json')
+report = json.load(open(report_path)) if os.path.exists(report_path) else {}
 for name, rows in cands.items():
+    if not rows:
+        continue
     for r in rows:
         r['score'] = 10 * r['cer'] + max(0, r['shimmer'] - 10.5) + 0.3 * abs(r['f0'] - target_f0)
     best = min(rows, key=lambda r: r['score'])
     chosen[name] = best
+    report[name] = {'cer': best['cer'], 'file': os.path.basename(best['path'])}
     allc = ' '.join(f"{r['cer']*100:.0f}%" for r in rows)
     print(f"{name}: tanlandi {os.path.basename(best['path'])} CER {best['cer']*100:.0f}% shimmer {best['shimmer']:.1f} f0 {best['f0']:.1f} dur {best['dur']:.1f}s  (barcha CER: {allc})", flush=True)
     w, sr = sf.read(best['path'])
@@ -49,6 +54,7 @@ for i, sc in enumerate(spec['scenes']):
 spec['cta']['voice'] = f'{out_dir}/cta.wav'
 json.dump(spec, open(new_spec, 'w'), ensure_ascii=False, indent=1)
 
+json.dump(report, open(report_path, 'w'), ensure_ascii=False, indent=1)
 paths = [f'{out_dir}/{n}.wav' for n in chosen]
 M = hear.speaker_similarity(paths); iu = np.triu_indices(len(paths), 1)
 print(f"ovoz o'xshashligi: o'rt {M[iu].mean():.2f} min {M[iu].min():.2f}")

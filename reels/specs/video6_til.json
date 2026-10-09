@@ -1,12 +1,8 @@
 {
- "speaking_rate": 1.1,
  "voice_delay": 0.3,
  "music_gain": 0.6,
  "voice_gain": 1.5,
  "music_start": 0,
- "tts": {
-  "split_on": ":.?!"
- },
  "out": "yuksalish_til.mp4",
  "music": "/home/user/oilaviy-bot/reels/music/6_vlog_the_vlog.mp3",
  "scenes": [
@@ -15,7 +11,7 @@
    "dur": 4.5,
    "top": 1060,
    "xfrac": 0.3,
-   "voice": "voice/s0.wav",
+   "voice": "voice_cb/s0.wav",
    "say": "Til o'rganish qiyin tuyuladimi? Mana, besh ta sodda usul.",
    "lines": [
     [
@@ -45,7 +41,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.5,
-   "voice": "voice/s1.wav",
+   "voice": "voice_cb/s1.wav",
    "say": "Birinchi: har kuni o'nta yangi so'z o'rganing.",
    "lines": [
     [
@@ -80,7 +76,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.6,
-   "voice": "voice/s2.wav",
+   "voice": "voice_cb/s2.wav",
    "say": "Ikkinchi: film yoki video ko'ring.",
    "lines": [
     [
@@ -115,7 +111,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.5,
-   "voice": "voice/s3.wav",
+   "voice": "voice_cb/s3.wav",
    "say": "Uchinchi: gapirishdan qo'rqmang.",
    "lines": [
     [
@@ -150,7 +146,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.6,
-   "voice": "voice/s4.wav",
+   "voice": "voice_cb/s4.wav",
    "say": "To'rtinchi: yangi so'zlarni yozib boring.",
    "lines": [
     [
@@ -185,7 +181,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.3,
-   "voice": "voice/s5.wav",
+   "voice": "voice_cb/s5.wav",
    "say": "Beshinchi: har kuni takrorlang.",
    "lines": [
     [
@@ -225,7 +221,8 @@
    "send"
   ],
   "dur": 5.5,
-  "voice": "voice/cta.wav",
+  "voice": "voice_cb/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
- }
+ },
+ "voice_tail": 0.6
 }

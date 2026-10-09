@@ -1,7 +1,7 @@
 # Yuksalish: videolar jadvali, izohlar, musiqa
 
 Har bir video uchun: yuklash sanasi, izoh (nusxa ko'chirishga tayyor), roppa-rosa 3 ta hashtag, musiqa shabloni.
-Hamma rasmiy videolar ovozli (MMS-TTS, A varianti), 1080x1920, ~35-40 soniya.
+Hamma 8 video ovozli (Chatterbox, ayol ovozi FEM2), 1080x1920, ~35 soniya. Musiqa fayllari repoda yo'q (CLAUDE.md "Musiqa" bo'limiga qarang).
 
 ## 1-video: Ilm olishning 5 ta samarali usuli
 - Fayl: `yuksalish_5_usul.mp4` | Sana: **09.10.2026 (juma)** | Musiqa: 6-shablon (Vlog, "Echoes of Lumen")

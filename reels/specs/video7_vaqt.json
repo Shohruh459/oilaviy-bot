@@ -1,12 +1,8 @@
 {
- "speaking_rate": 1.1,
  "voice_delay": 0.3,
  "music_gain": 0.6,
  "voice_gain": 1.5,
  "music_start": 0,
- "tts": {
-  "split_on": ":.?!"
- },
  "out": "yuksalish_vaqt.mp4",
  "music": "/home/user/oilaviy-bot/reels/music/5_tezkor_business_corporate.mp3",
  "scenes": [
@@ -15,7 +11,7 @@
    "dur": 4.5,
    "top": 1060,
    "xfrac": 0.7,
-   "voice": "voice/s0.wav",
+   "voice": "voice_cb/s0.wav",
    "say": "Vaqt yetmayaptimi? Mana, besh ta maslahat.",
    "lines": [
     [
@@ -45,7 +41,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.6,
-   "voice": "voice/s1.wav",
+   "voice": "voice_cb/s1.wav",
    "say": "Birinchi: haftalik reja tuzing.",
    "lines": [
     [
@@ -80,7 +76,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.5,
-   "voice": "voice/s2.wav",
+   "voice": "voice_cb/s2.wav",
    "say": "Ikkinchi: uchta muhim ishni tanlang.",
    "lines": [
     [
@@ -115,7 +111,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.4,
-   "voice": "voice/s3.wav",
+   "voice": "voice_cb/s3.wav",
    "say": "Uchinchi: vaqt o'g'rilarini toping.",
    "lines": [
     [
@@ -150,7 +146,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.7,
-   "voice": "voice/s4.wav",
+   "voice": "voice_cb/s4.wav",
    "say": "To'rtinchi: bo'sh vaqtdan foydalaning.",
    "lines": [
     [
@@ -185,7 +181,7 @@
    "dur": 4.5,
    "top": 1000,
    "xfrac": 0.65,
-   "voice": "voice/s5.wav",
+   "voice": "voice_cb/s5.wav",
    "say": "Beshinchi: dam olishni ham rejalang.",
    "lines": [
     [
@@ -224,7 +220,8 @@
    "follow"
   ],
   "dur": 5.5,
-  "voice": "voice/cta.wav",
+  "voice": "voice_cb/cta.wav",
   "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
- }
+ },
+ "voice_tail": 0.6
 }
