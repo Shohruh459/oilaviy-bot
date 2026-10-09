@@ -89,8 +89,14 @@ Yig'ishda musiqa boshidan olinadi, 1s ichida paydo bo'ladi, oxirgi 3s da so'nadi
 - **Matn qoidalari:** raqamlarni so'z bilan yozing ("o'ttiz", "o'n"), gaplarni qisqa tuting (har sahna 1 gap, 2–4 soniya; uzun gap videoni 50+ soniyaga cho'zadi), `speaking_rate` 1.1. Ekrandagi matn ovozdan batafsilroq bo'lishi mumkin.
 - Talaffuzni men eshita olmayman: foydalanuvchi eshitib xato so'zlarni aytadi. Xatolarni imlo bilan tuzating (masalan so'zni boshqacha yozib) va shu yerga "Talaffuz tuzatishlari" sifatida yozib boring.
 
+### Ovoz birligi (foydalanuvchi fikri bo'yicha)
+- Birinchi testda foydalanuvchi: 4-gap ("To'rtinchi: o'n daqiqa kitob o'qing.", seed 555, tezlik 1.1) eng yoqdi; boshqa gaplar unga o'xshamadi ("hammasi bir xil ovoz emas"), 4-gap "haddan tashqari professional" eshitildi. Shu gap **standart ovoz** deb qabul qilindi: `reels/voice_ref/ref_tavsiya.wav`.
+- Sababi: VITS tasodifiy (seed) va gap matniga qarab ohang beradi; gaplar orasida ~2 yarim ton balandlik farqi bor (tasodifdan emas, matn naqshidan).
+- Yechim (`reels/voice_match.py`, `make_voice.py` avtomatik qo'llaydi): har gapdan 12 ta seed yaratiladi, ohang balandligi va o'zgarishi namunaga eng yaqini tanlanadi, qolgan farq `rubberband` bilan tenglanadi (±0.4 yarim ton), ovoz balandligi `loudnorm` (-18 LUFS) bilan tenglanadi. Namuna gap uchun spetsifikatsiyada `"seed": 555` (moslashtirishsiz, faqat loudnorm).
+- Cheklov: bu obyektiv akustik moslashtirish; men eshita olmayman. Tembr harflar tarkibiga bog'liq (mfcc/spektral markaz bilan taqqoslash noto'g'ri mezon edi, ishlatmang).
+
 ### Talaffuz tuzatishlari
-(hozircha bo'sh; foydalanuvchi sinov natijasini aytgach to'ldiriladi)
+(hozircha bo'sh; foydalanuvchi talaffuz xatolarini aytgach to'ldiriladi)
 
 ## Texnik eslatmalar
 
