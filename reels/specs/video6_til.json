@@ -184,7 +184,7 @@
    "clip": "cal",
    "dur": 4.5,
    "top": 1000,
-   "xfrac": 0.28,
+   "xfrac": 0.3,
    "voice": "voice/s5.wav",
    "say": "Beshinchi: har kuni takrorlang.",
    "lines": [
@@ -213,7 +213,8 @@
      44,
      "0xE6E6E6"
     ]
-   ]
+   ],
+   "start": 3.3
   }
  ],
  "cta": {
