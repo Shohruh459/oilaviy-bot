@@ -92,8 +92,10 @@ Yig'ishda musiqa boshidan olinadi, 1s ichida paydo bo'ladi, oxirgi 3s da so'nadi
 ### Ovoz birligi (foydalanuvchi fikri bo'yicha)
 - Birinchi testda foydalanuvchi: 4-gap ("To'rtinchi: o'n daqiqa kitob o'qing.", seed 555, tezlik 1.1) eng yoqdi; boshqa gaplar unga o'xshamadi ("hammasi bir xil ovoz emas"), 4-gap "haddan tashqari professional" eshitildi. Shu gap **standart ovoz** deb qabul qilindi: `reels/voice_ref/ref_tavsiya.wav`.
 - Sababi: VITS tasodifiy (seed) va gap matniga qarab ohang beradi; gaplar orasida ~2 yarim ton balandlik farqi bor (tasodifdan emas, matn naqshidan).
-- Yechim (`reels/voice_match.py`, `make_voice.py` avtomatik qo'llaydi): har gapdan 12 ta seed yaratiladi, ohang balandligi va o'zgarishi namunaga eng yaqini tanlanadi, qolgan farq `rubberband` bilan tenglanadi (±0.4 yarim ton), ovoz balandligi `loudnorm` (-18 LUFS) bilan tenglanadi. Namuna gap uchun spetsifikatsiyada `"seed": 555` (moslashtirishsiz, faqat loudnorm).
-- Cheklov: bu obyektiv akustik moslashtirish; men eshita olmayman. Tembr harflar tarkibiga bog'liq (mfcc/spektral markaz bilan taqqoslash noto'g'ri mezon edi, ishlatmang).
+- 2-test fikri: 3 va 5-usul "tomog'ini ataylab bo'g'ib gapirgan odamdek" eshitildi; 1, 2, 4-usul bir-biriga yaqin. Praat o'lchovi (parselmouth) buni tasdiqladi: yomon gaplarda **shimmer 14–15%**, yaxshilarida 10–11%.
+- **Sabab (mening xatoyim):** balandlikni siljitish (`rubberband`, formant saqlangan variant ham) shimmerni 2–5 punktga oshirib, ovozni "bo'g'ilgan" qildi (xom sintezda shimmer hamma gapda 10–12% edi). **Balandlikni siljitmang. `loudnorm` ham ishlatmang** (dinamik kuchaytirish). Faqat statik kuchaytirish (RMS tenglash).
+- Hozirgi usul (`reels/voice_match.py`, `make_voice.py` avtomatik qo'llaydi): har gapdan 16 ta seed yaratiladi, **shimmer (asosiy)** va ohang balandligi/o'zgarishi namunaga eng yaqini tanlanadi, siljitishsiz; ovoz balandligi statik kuchaytirish bilan tenglanadi. Namuna gap uchun spetsifikatsiyada `"seed": 555`. Natija: hamma gapda shimmer 9.5–10.5%.
+- Cheklov: bu obyektiv o'lchov; men eshita olmayman, so'nggi hukm foydalanuvchiniki. Tembr harflar tarkibiga bog'liq (mfcc/spektral markaz bilan taqqoslash noto'g'ri mezon, ishlatmang). Shimmer yagona tasdiqlangan ajratuvchi o'lchov (jitter ajratmadi).
 
 ### Talaffuz tuzatishlari
 (hozircha bo'sh; foydalanuvchi talaffuz xatolarini aytgach to'ldiriladi)

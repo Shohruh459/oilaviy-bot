@@ -20,10 +20,10 @@ for name, it in items:
             import voice_match
             raw = it['voice'] + '.raw.wav'
             cyr, dur = tts_uz.synth(it['say'], raw, speaking_rate=rate, seed=it['seed'])
-            voice_match._postprocess(raw, it['voice'], 0)  # faqat ovoz balandligini tenglash
+            voice_match._postprocess(raw, it['voice'], voice_match.features(REF_WAV)['rms'])  # faqat ovoz balandligini tenglash
             os.remove(raw)
             print(f"{name}: seed {it['seed']} (qat'iy) {dur:.1f}s | {cyr}")
         else:  # namuna ovozga eng yaqin variantni tanlash
             import voice_match
-            sd, d, resid = voice_match.synth_matched(it['say'], it['voice'], REF_WAV, speaking_rate=rate, verbose=False)
-            print(f"{name}: seed {sd} (ohang masofasi {d:.2f}), yakuniy farq {resid:+.2f} yarim ton | {tts_uz.lat2cyr(it['say'])}")
+            sd, d, fin = voice_match.synth_matched(it['say'], it['voice'], REF_WAV, speaking_rate=rate, verbose=False)
+            print(f"{name}: seed {sd} (masofa {d:.2f}), shimmer {fin['shimmer']:.1f}, f0 {fin['f0']:.1f} | {tts_uz.lat2cyr(it['say'])}")
