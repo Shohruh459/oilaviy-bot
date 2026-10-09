@@ -24,9 +24,10 @@ def audio_len(p):
 
 # Ovozli video: har sahna davomiyligi = ovoz uzunligi + kechikish + 0.9s (kamida "dur")
 VOICE_DELAY = spec.get('voice_delay', 0.4)
+VOICE_TAIL = spec.get('voice_tail', 0.9)
 for sc in spec['scenes']:
     if sc.get('voice'):
-        sc['dur'] = round(max(sc.get('dur', 0), audio_len(sc['voice']) + VOICE_DELAY + 0.9), 2)
+        sc['dur'] = round(max(sc.get('dur', 0), audio_len(sc['voice']) + VOICE_DELAY + VOICE_TAIL), 2)
 
 # ---------------- matnli sahnalar ----------------
 def text_scene(i, sc):
@@ -107,7 +108,7 @@ ICONS = [(k,) + CATALOG[k] for k in order]
 XS = [195, 540, 885]; CY = 1010; R = 118
 FPS, DUR = 30, cta.get('dur', 5.5)
 if cta.get('voice'):
-    DUR = round(max(DUR, audio_len(cta['voice']) + VOICE_DELAY + 0.9), 2)
+    DUR = round(max(DUR, audio_len(cta['voice']) + VOICE_DELAY + VOICE_TAIL), 2)
 glyphs = [glyph(k, 130) for k, *_ in ICONS]
 ig = instagram_icon(96)
 brand = cta.get('brand', 'YUKSALISH')
