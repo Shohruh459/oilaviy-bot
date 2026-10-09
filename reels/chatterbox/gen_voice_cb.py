@@ -49,7 +49,7 @@ def trim(w, thr=0.03, keep=0.04):
 
 
 def synth_line(text, seed):
-    parts = [p for p in re.split(r'([.:?!;]+)', norm(text)) if p.strip()]
+    parts = [norm(text)] if os.environ.get('NOSPLIT') else [p for p in re.split(r'([.:?!;]+)', norm(text)) if p.strip()]
     pieces = []; have = False
     for j, p in enumerate(parts):
         if re.fullmatch(r'[.:?!;]+', p.strip()):

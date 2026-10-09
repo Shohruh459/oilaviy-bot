@@ -1,0 +1,228 @@
+{
+ "speaking_rate": 1.1,
+ "voice_delay": 0.3,
+ "music_gain": 0.6,
+ "voice_gain": 1.5,
+ "tts": {
+  "split_on": ":.?!"
+ },
+ "out": "yuksalish_5_usul.mp4",
+ "music": "/home/user/oilaviy-bot/reels/music/6_vlog_echoes_of_lumen.mp3",
+ "music_start": 0,
+ "scenes": [
+  {
+   "clip": "big_hook_2",
+   "dur": 4.5,
+   "top": 1060,
+   "voice": "voice_cbb/s0.wav",
+   "say": "Ko'p o'qiysiz, lekin esda qolmayaptimi? Mana, besh ta foydali usul.",
+   "lines": [
+    [
+     "Ko'p o'qiysiz-u,",
+     82,
+     "white"
+    ],
+    [
+     "esda qolmayaptimi?",
+     82,
+     "white"
+    ],
+    [
+     "Ko'proq samara beradigan",
+     46,
+     "0xFFD54F"
+    ],
+    [
+     "5 ta usul ↓",
+     46,
+     "0xFFD54F"
+    ]
+   ]
+  },
+  {
+   "clip": "big_hook_3",
+   "dur": 4.5,
+   "top": 1000,
+   "voice": "voice_cbb/s1.wav",
+   "say": "Birinchi: kichik qadamlardan boshlang.",
+   "lines": [
+    [
+     "1-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "Kichik qadamlardan",
+     62,
+     "white"
+    ],
+    [
+     "boshlang",
+     62,
+     "white"
+    ],
+    [
+     "Kuniga 20 daqiqa ham",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "katta natija beradi",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  },
+  {
+   "clip": "big_t2_3",
+   "dur": 4.5,
+   "top": 1000,
+   "voice": "voice_cbb/s2.wav",
+   "say": "Ikkinchi: o'qiganingizni yozib boring.",
+   "lines": [
+    [
+     "2-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "O'qiganingizni o'z",
+     62,
+     "white"
+    ],
+    [
+     "so'zingiz bilan yozing",
+     62,
+     "white"
+    ],
+    [
+     "Mavzu shunda yaxshiroq",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "esda qoladi",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  },
+  {
+   "clip": "big_t3_3",
+   "dur": 4.5,
+   "top": 1000,
+   "voice": "voice_cbb/s3.wav",
+   "say": "Uchinchi: takrorlashni oldindan rejalang.",
+   "lines": [
+    [
+     "3-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "Takrorlashni",
+     62,
+     "white"
+    ],
+    [
+     "oldindan rejalang",
+     62,
+     "white"
+    ],
+    [
+     "Ertasi kuni, 3 kundan so'ng",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "va bir haftadan keyin",
+     44,
+     "0xE6E6E6"
+    ]
+   ],
+   "xfrac": 0.3,
+   "start": 3.3
+  },
+  {
+   "clip": "big_t4_3",
+   "dur": 4.5,
+   "top": 1000,
+   "voice": "voice_cbb/s4.wav",
+   "say": "To'rtinchi: o'qish paytida telefonni chetga qo'ying.",
+   "lines": [
+    [
+     "4-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "O'qish vaqtida",
+     62,
+     "white"
+    ],
+    [
+     "telefonni chetga qo'ying",
+     62,
+     "white"
+    ],
+    [
+     "Diqqat jamlansa,",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "tezroq o'rganasiz",
+     44,
+     "0xE6E6E6"
+    ]
+   ],
+   "xfrac": 0.92
+  },
+  {
+   "clip": "big_t5_3",
+   "dur": 4.5,
+   "top": 1000,
+   "voice": "voice_cbb/s5.wav",
+   "say": "Beshinchi: bilganingizni boshqalarga o'rgating.",
+   "lines": [
+    [
+     "5-usul",
+     42,
+     "0xFFD54F"
+    ],
+    [
+     "Bilganingizni",
+     62,
+     "white"
+    ],
+    [
+     "boshqalarga o'rgating",
+     62,
+     "white"
+    ],
+    [
+     "Mustahkamlashning eng",
+     44,
+     "0xE6E6E6"
+    ],
+    [
+     "yaxshi usullaridan biri",
+     44,
+     "0xE6E6E6"
+    ]
+   ]
+  }
+ ],
+ "cta": {
+  "bg": "cta_bg",
+  "order": [
+   "save",
+   "send",
+   "follow"
+  ],
+  "dur": 5.5,
+  "voice": "voice_cbb/cta.wav",
+  "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
+ },
+ "voice_tail": 0.6
+}
