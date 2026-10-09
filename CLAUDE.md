@@ -23,7 +23,7 @@ Birinchi video **09.10.2026 (juma)** da yuklanadi, qolganlari har kuni ketma-ket
 |---|---|---|---|
 | 1 | 09.10.2026 (juma) | Ilm olishning 5 ta samarali usuli | tayyor: `yuksalish_5_usul.mp4` |
 | 2 | 10.10.2026 (shanba) | Diqqatni jamlashning 5 yo'li | tayyor: `yuksalish_diqqat.mp4` (2-shablon musiqa) |
-| 3 | 11.10.2026 (yakshanba) | Kitob o'qishni odatga aylantirish | kutilmoqda |
+| 3 | 11.10.2026 (yakshanba) | Kitob o'qishni odatga aylantirish | tayyor: `yuksalish_kitob.mp4` (3-shablon musiqa) |
 | 4 | 12.10.2026 (dushanba) | Ertalabki 5 ta odat (ilm uchun) | kutilmoqda |
 | 5 | 13.10.2026 (seshanba) | Imtihonga tayyorgarlik: 5 ta maslahat | kutilmoqda |
 | 6 | 14.10.2026 (chorshanba) | Yangi til o'rganish: 5 ta sodda usul | kutilmoqda |
@@ -41,6 +41,8 @@ Eslatma: `yuksalish_ilm.mp4` va `yuksalish_ilm_v2.mp4` — oyat/hadis bilan eski
 - Matn pastki-markazda yarim shaffof qora panelda, sarlavha oq, "N-usul" va manba/urg'u oltin (`0xFFD54F`). Instagram interfeysi yopadigan pastki ~250px va yuqori qismni bo'sh qoldiring.
 - Oxirgi CTA animatsiyali piktogrammalar bilan, videoga qarab tartibi: maslahat ro'yxati → **Saqlash** birinchi; hikoya/ilhom → **Ulashish** birinchi; doim **Obuna** ham bor. Piktogrammalar Pillow bilan chiziladi (sakrab chiqish + yengil pulsatsiya).
 - **Instagram belgisi:** keyingi videolardan boshlab oxirgi kadrda `YUKSALISH` yozuvining yonida Instagram piktogrammasi bo'lsin (gradientli yumaloq kvadrat ichida kamera belgisi, Pillow bilan chiziladi, tashqi logo fayl kerak emas). Foydalanuvchi Instagram nomini (`@...`) bersa, yozuvni shunga almashtiring.
+- **Kiyim va tana qoidasi:** klipda ayollarning yelkasi, qo'li va ko'kragi ochiq bo'lmasin. Yengsiz, ochiq yoki qisqa kiyimdagi ayollar tushgan klipni tanlamang. Yopiq kiyimdagi (kamida qisqa yeng, yopiq yoqa) odamlar, erkaklar, faqat qo'l/predmet, tabiat yoki multfilm kadrlarni tanlang. Har bir tanlangan klipning kadrini ko'rib tekshiring, 9:16 kesishdan keyin ham (kesish kadrni o'zgartiradi).
+- **Ijod erkinligi:** foydalanuvchi mavzu, klip va musiqa tanlashda mustaqil ijod qilishga ruxsat bergan. Jadvaldagi mavzuga mos klip va shablonni o'zingiz tanlang, natijani va tanlovni qisqa tushuntiring.
 - Ilmiy da'volarni umumiy tavsiya sifatida yozing; manbasiz aniq raqam/foiz yozmang.
 - Oyat va hadisni faqat foydalanuvchi matn va manbani tasdiqlagandagina qo'shing; xotiradan qo'shmang. Manbani kichik yozuv bilan ko'rsating.
 
