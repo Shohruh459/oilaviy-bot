@@ -210,7 +210,8 @@
   ],
   "dur": 5.5,
   "voice": "voice_cb/cta.wav",
-  "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz."
+  "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz.",
+  "brand": "@yuksalish713"
  },
  "voice_delay": 0.3,
  "music_gain": 0.6,

@@ -29,7 +29,7 @@ Tayyor ro'yxat: `reels/captions.md`. Video yuborganda xabarda doim:
 | 7 | 15.10.2026 (payshanba) | Vaqtni taqsimlash | `yuksalish_vaqt.mp4` | `5_tezkor_business_corporate.mp3` |
 | 8 | 16.10.2026 (juma) | Charchaganda ham davom etish | `yuksalish_charchoq.mp4` | `4_sokin_relaxing.mp3` |
 
-Ochiq ishlar: foydalanuvchi Instagram nomini (`@...`) bermagan (CTA'dagi `YUKSALISH` yozuvini almashtiring); FEM2 namunasi haqiqiy odamniki (pastdagi huquqiy eslatma): ixtiyoriy ravishda rozi bergan ayolning 15–20 s yozuviga almashtirish; 8 kundan keyingi videolar uchun yangi mavzular rejasi.
+Instagram: **@yuksalish713** (hamma videoning oxirgi kadrida, spetsifikatsiyada `cta.brand`). Ochiq ishlar: FEM2 namunasi haqiqiy odamniki (pastdagi huquqiy eslatma): ixtiyoriy ravishda rozi bergan ayolning 15–20 s yozuviga almashtirish; 8 kundan keyingi videolar uchun yangi mavzular rejasi.
 
 ## Kontent uslubi
 
