@@ -30,22 +30,60 @@ for sc in spec['scenes']:
         sc['dur'] = round(max(sc.get('dur', 0), audio_len(sc['voice']) + VOICE_DELAY + VOICE_TAIL), 2)
 
 # ---------------- matnli sahnalar ----------------
+def fit_size(text, size, maxw=960):
+    """Matn kengligi maxw dan oshmasligi uchun shriftni kichraytiradi."""
+    fnt = ImageFont.truetype(FONT, size)
+    w = fnt.getlength(text)
+    return size if w <= maxw else max(24, int(size * maxw / w))
+
+FAST = spec.get('fast', False)       # tez montaj: qattiq kesishlar, zoom, tez paydo bo'ladigan matn, progress chizig'i
+ZOOM = spec.get('zoom', 0.12 if FAST else 0)
+SCENE_START = []
+_t = 0.0
+for _sc in spec['scenes']:
+    SCENE_START.append(_t); _t += _sc['dur']
+TOTAL_EST = _t + spec['cta'].get('dur', 5.5)
+
 def text_scene(i, sc):
-    c, d, lines, top = sc['clip'], sc['dur'], sc['lines'], sc['top']
+    c, d, lines, top = sc.get('clip'), sc['dur'], sc['lines'], sc['top']
     xf = sc.get('xfrac', 0.5)
-    f = ["scale=1080:1920:force_original_aspect_ratio=increase",
-         f"crop=1080:1920:x=(iw-ow)*{xf}:y=0,fps=30,setsar=1"]
+    subs = sc.get('clips') or [{'clip': c, 'start': sc.get('start', 0.5), 'xfrac': xf}]
+    n = len(subs); each = d / n
+    fl, labels = [], []
+    for k, sb in enumerate(subs):
+        z = ZOOM if k % 2 == 0 else -ZOOM       # navbat bilan yaqinlashish / uzoqlashish
+        base = (f"[{k}:v]scale=1080:1920:force_original_aspect_ratio=increase,"
+                f"crop=1080:1920:x=(iw-ow)*{sb.get('xfrac', xf)}:y=0,fps=30,setsar=1")
+        if ZOOM:
+            zf = f"(1+{abs(z)}*{'t' if z > 0 else f'({each}-t)'}/{each})"
+            base += f",scale=w='trunc(1080*{zf}/2)*2':h='trunc(1920*{zf}/2)*2':eval=frame,crop=1080:1920"
+        fl.append(base + f"[s{k}]"); labels.append(f"[s{k}]")
+    chain = "".join(labels) + f"concat=n={n}:v=1:a=0[bg]" if n > 1 else "[s0]null[bg]"
+    fl.append(chain)
     ys, y = [], top + 45
-    for t, s, col in lines:
+    nlines = [(t, fit_size(t, s), col) for t, s, col in lines]
+    for t, s, col in nlines:
         ys.append(y); y += int(s * 1.35)
-    f.append(f"drawbox=x=0:y={top}:w=iw:h={y - top + 45}:color=black@0.58:t=fill")
-    for j, ((t, s, col), yy) in enumerate(zip(lines, ys)):
+    f = [f"drawbox=x=0:y={top}:w=iw:h={y - top + 45}:color=black@0.58:t=fill"]
+    step, ramp = (0.08, 0.2) if FAST else (0.15, 0.4)
+    for j, ((t, s, col), yy) in enumerate(zip(nlines, ys)):
         p = f'txt/{i}_{j}.txt'; open(p, 'w').write(t)
         f.append(f"drawtext=fontfile={FONT}:textfile={p}:fontsize={s}:fontcolor={col}:x=(w-text_w)/2:y={yy}:"
-                 f"alpha='min(1,max(0,(t-{0.15 * j})/0.4))'")
-    f += ["fade=t=in:d=0.3", f"fade=t=out:st={d - 0.3}:d=0.3", "format=yuv420p"]
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-stream_loop', '-1', '-ss', str(sc.get('start', 0.5)),
-                    '-t', str(d), '-i', f"clips/{c}.mp4", '-vf', ",".join(f), '-an',
+                 f"alpha='min(1,max(0,(t-{step * j})/{ramp}))'")
+    if FAST:
+        f += ["format=yuv420p"]
+    else:
+        f += ["fade=t=in:d=0.3", f"fade=t=out:st={d - 0.3}:d=0.3", "format=yuv420p"]
+    graph = ";".join(fl) + ";[bg]" + ",".join(f) + "[tx]"
+    inputs = []
+    for sb in subs:
+        inputs += ['-stream_loop', '-1', '-ss', str(sb.get('start', 0.5)), '-t', str(round(each + 0.05, 3)), '-i', f"clips/{sb['clip']}.mp4"]
+    last = '[tx]'
+    if FAST:
+        inputs += ['-f', 'lavfi', '-i', f"color=c=0xFFD54F:s=1080x10:r=30:d={d + 1}"]
+        graph += (f";{last}[{n}:v]overlay=x='-W+W*({SCENE_START[i]}+t)/{TOTAL_EST}':y=250:eval=frame:shortest=1,format=yuv420p[out]")
+        last = '[out]'
+    subprocess.run(['ffmpeg', '-y', '-v', 'error'] + inputs + ['-filter_complex', graph, '-map', last, '-t', str(d), '-an',
                     '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', f'seg/{i}.mp4'], check=True)
 
 for i, sc in enumerate(spec['scenes']):

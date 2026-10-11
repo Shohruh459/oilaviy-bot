@@ -1,0 +1,27 @@
+{
+ "out": "yuksalish_diqqat_fast.mp4",
+ "music": "/home/user/oilaviy-bot/reels/music/5_tezkor_business_corporate.mp3",
+ "music_start": 0,
+ "fast": true,
+ "voice_delay": 0.08,
+ "voice_tail": 0.3,
+ "scenes": [
+  {"clips": [{"clip": "c_book", "start": 1.0, "xfrac": 0.45}, {"clip": "c_scroll", "start": 1.0, "xfrac": 0.5}],
+   "dur": 3.0, "top": 980,
+   "lines": [["Kitob ochsangiz,", 100, "white"], ["fikr boshqa yoqqa", 100, "white"], ["ketadimi?", 100, "white"], ["Diqqat uchun 3 ta usul ↓", 54, "0xFFD54F"]],
+   "say": "Kitob ochsangiz, fikringiz boshqa yoqqa ketadimi? Mana, uchta usul."},
+  {"clips": [{"clip": "c_ring", "start": 0.5, "xfrac": 0.5}, {"clip": "c_hands", "start": 1.5, "xfrac": 0.5}],
+   "dur": 3.0, "top": 1000,
+   "lines": [["1-usul", 60, "0xFFD54F"], ["Telefonni boshqa", 96, "white"], ["xonaga qo'ying", 96, "white"], ["Ko'zdan uzoq bo'lsa, chalg'imaysiz", 44, "0xE6E6E6"]],
+   "say": "Birinchi: telefonni boshqa xonaga qo'ying."},
+  {"clips": [{"clip": "c_timer", "start": 0.5, "xfrac": 0.5}, {"clip": "c_cup", "start": 2.0, "xfrac": 0.5}],
+   "dur": 3.0, "top": 1000,
+   "lines": [["2-usul", 60, "0xFFD54F"], ["25 daqiqa o'qing,", 96, "white"], ["5 daqiqa dam oling", 96, "white"], ["Qisqa bosqichlar diqqatni saqlaydi", 44, "0xE6E6E6"]],
+   "say": "Ikkinchi: yigirma besh daqiqa o'qing, besh daqiqa dam oling."},
+  {"clips": [{"clip": "c_type", "start": 1.0, "xfrac": 0.5}, {"clip": "c_write", "start": 1.5, "xfrac": 0.5}],
+   "dur": 3.0, "top": 1000,
+   "lines": [["3-usul", 60, "0xFFD54F"], ["Bir vaqtda", 96, "white"], ["bitta ish qiling", 96, "white"], ["Diqqat bo'linmasa, tezroq tushunasiz", 44, "0xE6E6E6"]],
+   "say": "Uchinchi: bir vaqtda bitta ish qiling."}
+ ],
+ "cta": {"order": ["save", "send", "follow"], "bg": "cta_bg", "say": "Foydali bo'ldimi? Saqlab qo'ysangiz, keyin kerak bo'ladi. Obuna bo'lsangiz, xursand bo'lamiz.", "brand": "@yuksalish713"}
+}
