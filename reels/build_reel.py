@@ -56,7 +56,7 @@ def text_scene(i, sc):
                 f"crop=1080:1920:x=(iw-ow)*{sb.get('xfrac', xf)}:y=0,fps=30,setsar=1")
         if ZOOM:
             zf = f"(1+{abs(z)}*{'t' if z > 0 else f'({each}-t)'}/{each})"
-            base += f",scale=w='trunc(1080*{zf}/2)*2':h='trunc(1920*{zf}/2)*2':eval=frame,crop=1080:1920"
+            base += f",scale=w='trunc(1080*{zf}/2)*2':h='trunc(1920*{zf}/2)*2':eval=frame,crop=1080:1920,setsar=1"
         fl.append(base + f"[s{k}]"); labels.append(f"[s{k}]")
     chain = "".join(labels) + f"concat=n={n}:v=1:a=0[bg]" if n > 1 else "[s0]null[bg]"
     fl.append(chain)
